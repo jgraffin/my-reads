@@ -1,30 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react'
 import WantToRead from '../shelfs/WantToRead'
 
-const books = [
-	{
-		"id": "lotr",
-		"title": "The Lord Of The Rings",
-		"imageFolder": "http://localhost:5001/ryan.jpg"
-	},
-	{
-		"id": "silmarillion",
-		"title": "Silmarillion",
-		"imageFolder": "http://localhost:5001/michael.jpg"
-	},
-	{
-		"id": "the-hobbit",
-		"title": "The Hobbit",
-		"imageFolder": "http://localhost:5001/tyler.jpg"
-	}
-]
+class Main extends Component {
 
-const Main = (props) => (
-	<main className="mr-main">
-		<div className="container">
-			<WantToRead books={books} />
-		</div>
-	</main>
-)
+	state = {
+		books: [
+			{
+				"id": "lotr",
+				"title": "The Lord Of The Rings",
+				"imageFolder": "https://pictures.abebooks.com/isbn/9780007149247-uk.jpg",
+				"author": 'Christopher Tolkien'
+			},
+			{
+				"id": "silmarillion",
+				"title": "Silmarillion",
+				"imageFolder": "https://a-static.mlcdn.com.br/618x463/silmarillion-5a-ed-wmf-martins-fontes-wmf/cliquebooks/503385-3/11e3e1b397b9fe7029c8558152fbdc8a.jpg",
+				"author": 'John Reuel Ronald Tolkien'
+			},
+			{
+				"id": "harry-potter",
+				"title": "Harry Potter",
+				"imageFolder": "https://ewedit.files.wordpress.com/2016/09/hpchamber.jpg",
+				"author": 'JK. Rowling'
+
+			}
+		]
+	}
+
+	changeStatus = (book) => {
+
+	}
+
+	render() {
+		return (
+			<main className="mr-main">
+				<div className="container">
+					<WantToRead books={this.state.books} />
+				</div>
+			</main>
+		)
+	}
+}
 
 export default Main

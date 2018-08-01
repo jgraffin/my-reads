@@ -16,4 +16,84 @@
 			text-transform: uppercase;
 		}
 	}
+	&__list {
+		display: block;
+		width: 100%;
+		ul {
+			display: flex;
+			justify-content: space-between;
+			margin: 30px 0;
+			width: 100%;
+		}
+		li {
+			position: relative;
+			&:hover {
+				.item-book {
+					&--img {
+						img {
+							filter: grayscale(0);
+						}
+					}
+				}
+			}
+			.item-book {
+				&--img {
+					display: block;
+					height: 370px;
+					margin-bottom: 20px;
+					overflow: hidden;
+					transition: ease-in-out 0.3s;
+					width: 245px;
+
+					img {
+						display: block;
+						filter: grayscale(1);
+						width: 100%;
+					}
+				}
+
+				&--title, 
+				&--description {
+					display: block;
+					margin-bottom: 6px;
+					h2, p {
+						color: black;
+						font-family: 'Montserrat';
+						font-weight: 600;
+						font-size: 18px;
+					}
+				}
+
+				&--description {
+					p {
+						color: #999;
+						font-size: 14px;
+					}
+				}
+
+				&--selection {
+					display: block;
+					position: absolute;
+					right: 10px;
+					top: 300px;
+					width: 150px;
+					z-index: 2;
+
+					select {
+						appearance: none;
+						border-radius: 4px 4px 0 0;
+						display: block;
+						height: 30px;
+						padding: 0 10px;
+						width: 100%;
+
+						&:focus {
+							box-shadow: none;
+							outline: none;
+						}
+					}
+				}
+			}
+		}
+	}
 }

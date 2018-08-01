@@ -14,3 +14,54 @@
       font-size: 12px;
       letter-spacing: 1px;
       text-transform: uppercase; }
+  .mr-shelf__list {
+    display: block;
+    width: 100%; }
+    .mr-shelf__list ul {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+      width: 100%; }
+    .mr-shelf__list li {
+      position: relative; }
+      .mr-shelf__list li:hover .item-book--img img {
+        filter: grayscale(0); }
+      .mr-shelf__list li .item-book--img {
+        display: block;
+        height: 370px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: ease-in-out 0.3s;
+        width: 245px; }
+        .mr-shelf__list li .item-book--img img {
+          display: block;
+          filter: grayscale(1);
+          width: 100%; }
+      .mr-shelf__list li .item-book--title, .mr-shelf__list li .item-book--description {
+        display: block;
+        margin-bottom: 6px; }
+        .mr-shelf__list li .item-book--title h2, .mr-shelf__list li .item-book--title p, .mr-shelf__list li .item-book--description h2, .mr-shelf__list li .item-book--description p {
+          color: black;
+          font-family: 'Montserrat';
+          font-weight: 600;
+          font-size: 18px; }
+      .mr-shelf__list li .item-book--description p {
+        color: #999;
+        font-size: 14px; }
+      .mr-shelf__list li .item-book--selection {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 300px;
+        width: 150px;
+        z-index: 2; }
+        .mr-shelf__list li .item-book--selection select {
+          appearance: none;
+          border-radius: 4px 4px 0 0;
+          display: block;
+          height: 30px;
+          padding: 0 10px;
+          width: 100%; }
+          .mr-shelf__list li .item-book--selection select:focus {
+            box-shadow: none;
+            outline: none; }
