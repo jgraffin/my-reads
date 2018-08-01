@@ -1,0 +1,16 @@
+.mr-shelf {
+  display: block;
+  width: 100%; }
+  .mr-shelf__title {
+    border-bottom: 1px solid #dadada;
+    display: block;
+    padding: 30px 0 10px 0;
+    width: 100%; }
+    .mr-shelf__title h2 {
+      color: #666;
+      display: inline-block;
+      font-family: 'Montserrat';
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase; }

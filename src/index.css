@@ -1,31 +1,22 @@
-
+/* Mixin helper for media-queries */
 /* Reset All Styles */
-
+@import url(./components/shelfs/shelf.css);
 * {
-	appearance: none;
-	border-radius: 0;
-	border: 0;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
 
 .container {
-	margin: 0 auto;
-	padding: 0 15px;
-}
-
-@media (min-width: 767px) and (max-width: 767px){
-	.container {
-		background-color: yellow;
-		width: 100%;
-	}	
-}
-@media (min-width: 767px) and (max-width: 991px){
-	.container {
-		background-color: green;
-		width: 100%;
-	}	
-}
-@media (min-width: 992px) and (max-width: 1199px){}
-@media (min-width: 1200px){}
+  display: block;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .container {
+      width: 750px; } }
+  @media (min-width: 992px) {
+    .container {
+      width: 970px; } }

@@ -1,17 +1,12 @@
 import React from 'react'
-import Styled from 'styled-components'
-
-const Wrap = Styled.main`
-	display: block;
-	width: 100%;
-`
+import WantToRead from '../shelfs/WantToRead'
 
 const Main = (props) => (
-	<Wrap>
+	<main className="mr-main">
 		<div className="container">
-			{this.props}
+			<WantToRead />
 		</div>
-	</Wrap>
+	</main>
 )
 
 export default Main

@@ -1,0 +1,58 @@
+/* Mixin helper for media-queries */
+
+@mixin media($point) {
+	@if $point == xlg {
+		@media (min-width: 1600px) {
+			@content;
+		}
+	} @else if $point == lg {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	} @else if $point == md {
+		@media (min-width: 992px) {
+			@content;
+		}
+	} @else if $point == sm {
+		@media (min-width: 768px) {
+			@content;
+		}
+	} @else if $point == xs {
+		@media (max-width: 767px) {
+			@content;
+		}
+	}
+}
+
+
+/* Reset All Styles */
+
+* {
+	appearance: none;
+	border-radius: 0;
+	border: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+.container {
+	display: block;
+	margin: 0 auto;
+	padding: 0 15px;
+	width: 100%;
+
+	@include media(sm){
+		width: 750px;
+	}
+
+	@include media(md){
+		width: 970px;
+	}
+
+}
+
+@import './components/shelfs/shelf.css'
+
+
