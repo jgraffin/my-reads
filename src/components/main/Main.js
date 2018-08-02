@@ -9,19 +9,22 @@ class Main extends Component {
 				"id": "lotr",
 				"title": "The Lord Of The Rings",
 				"imageFolder": "https://pictures.abebooks.com/isbn/9780007149247-uk.jpg",
-				"author": 'Christopher Tolkien'
+				"author": 'Christopher Tolkien',
+				"value": null
 			},
 			{
 				"id": "silmarillion",
 				"title": "Silmarillion",
 				"imageFolder": "https://a-static.mlcdn.com.br/618x463/silmarillion-5a-ed-wmf-martins-fontes-wmf/cliquebooks/503385-3/11e3e1b397b9fe7029c8558152fbdc8a.jpg",
-				"author": 'John Reuel Ronald Tolkien'
+				"author": 'John Reuel Ronald Tolkien',
+				"value": null
 			},
 			{
 				"id": "harry-potter",
 				"title": "Harry Potter",
 				"imageFolder": "https://ewedit.files.wordpress.com/2016/09/hpchamber.jpg",
-				"author": 'JK. Rowling'
+				"author": 'JK. Rowling',
+				"value": null
 
 			}
 		]
