@@ -30,30 +30,9 @@ class Main extends Component {
 	}
 
 	changeStatus = (book) => {
-		
-		console.log(book)
-		// if (book.status === 'want-to-read') {
-		// 	this.setState((state) => ({
-		// 		books: state.books.filter((b) => 
-		// 			b.status = 'reading'
-		// 		)
-		// 	})) 
-		// 	console.log('reading');
-		// } else if (book.status === 'reading') {
-		// 	this.setState((state) => ({
-		// 		books: state.books.filter((b) => 
-		// 			b.status = 'read'
-		// 		)
-		// 	})) 
-		// 	console.log('read');
-		// } else {
-		// 	this.setState((state) => ({
-		// 		books: state.books.filter((b) => 
-		// 			b.status = 'want-to-read'
-		// 		)
-		// 	})) 	
-		// 	console.log('want-to-read');
-		// }
+		this.setState((state) => ({
+			books: state.books.filter((b) => console.log(b.status === book.status) )
+		})) 
 	}
 
 	render() {

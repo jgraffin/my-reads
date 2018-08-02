@@ -1,6 +1,7 @@
 import React from 'react'
 
 function WantToRead(props) {
+	
 	return (
 		<div className="mr-shelf">
 			<div className="mr-shelf__title">
@@ -13,7 +14,7 @@ function WantToRead(props) {
 							<li key={book.id}>
 								<div className="item-book--selection">
 									{/* <button onClick={() => props.onChangeBookStatus(book)}>button</button> */}
-									<select value={props.book} onChange={() => props.onChangeBookStatus( book.status === book )}>
+									<select value={props.book} onChange={(e) => props.onChangeBookStatus( book.status === e.target.value )}>
 										<option value="moveto" disabled>Move to...</option>
 										<option value="wanttoread">Want to Read</option>
 										<option value="reading">Reading</option>
