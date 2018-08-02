@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 function WantToRead(props) {
-
 	return (
 		<div className="mr-shelf">
 			<div className="mr-shelf__title">
@@ -13,12 +12,13 @@ function WantToRead(props) {
 						props.books.map((book) => (
 							<li key={book.id}>
 								<div className="item-book--selection">
-									<select>
-										<option value="Move to...">Move to...</option>
-										<option value="Currently Reading">Currently Reading</option>
-										<option value="Want to Read">Want to Read</option>
-										<option value="Read">Read</option>
-										<option value="None">None</option>
+									{/* <button onClick={() => props.onChangeBookStatus(book)}>button</button> */}
+									<select value={props.book} onChange={() => props.onChangeBookStatus( book.status === book )}>
+										<option value="moveto" disabled>Move to...</option>
+										<option value="wanttoread">Want to Read</option>
+										<option value="reading">Reading</option>
+										<option value="read">Read</option>
+										<option value="none">None</option>
 									</select>
 								</div>
 								<div className="item-book--img">
