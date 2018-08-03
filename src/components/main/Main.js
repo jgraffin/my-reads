@@ -11,7 +11,7 @@ class Main extends Component {
 	componentDidMount = () => {
 		BooksApi.getAll().then((books) => {
 			this.setState({ books })
-		})
+		});
 	}
 
 	changeStatus = (book) => {
