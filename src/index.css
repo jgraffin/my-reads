@@ -1,6 +1,10 @@
 /* Mixin helper for media-queries */
 /* Reset All Styles */
+<<<<<<< HEAD
 @import url(./components/my-book/my-book.css);
+=======
+@import url(./components/my-books/my-books.css);
+>>>>>>> 1dec1dd10af74b799d2e968a42021d50f3f896e8
 * {
   appearance: none;
   border-radius: 0;

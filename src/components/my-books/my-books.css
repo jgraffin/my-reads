@@ -1,0 +1,78 @@
+.mr-shelf {
+  display: block;
+  width: 100%; }
+  .mr-shelf__title {
+    border-bottom: 1px solid #dadada;
+    display: block;
+    padding: 30px 0 10px 0;
+    width: 100%; }
+    .mr-shelf__title h2 {
+      color: #666;
+      display: inline-block;
+      font-family: 'Montserrat';
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase; }
+  .mr-shelf__list {
+    display: block;
+    width: 100%; }
+    .mr-shelf__list ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin: 30px 0;
+      width: 100%; }
+    .mr-shelf__list li {
+      position: relative;
+      margin-right: 20px;
+      width: 120px; }
+      .mr-shelf__list li:last-of-type {
+        margin-right: 0; }
+      .mr-shelf__list li .item-book--img {
+        box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        display: block;
+        height: 147px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: ease-in-out 0.3s;
+        width: 100%; }
+        .mr-shelf__list li .item-book--img img {
+          display: block;
+          width: 100%; }
+      .mr-shelf__list li .item-book--title, .mr-shelf__list li .item-book--description {
+        display: block;
+        margin-bottom: 6px; }
+        .mr-shelf__list li .item-book--title h2, .mr-shelf__list li .item-book--title p, .mr-shelf__list li .item-book--description h2, .mr-shelf__list li .item-book--description p {
+          color: black;
+          font-family: 'Montserrat';
+          font-weight: 600;
+          font-size: 14px; }
+      .mr-shelf__list li .item-book--description p {
+        color: #999;
+        font-size: 14px; }
+      .mr-shelf__list li .item-book--selection {
+        background: #f1c40f;
+        border-radius: 0 0 3px 3px;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 117px;
+        width: 100%;
+        z-index: 2; }
+        .mr-shelf__list li .item-book--selection select {
+          appearance: none;
+          background: transparent;
+          border-radius: 4px 4px 0 0;
+          display: block;
+          font-family: 'Montserrat';
+          font-weight: 600;
+          text-transform: uppercase;
+          height: 30px;
+          padding: 0 10px;
+          width: 100%;
+          font-size: 9px; }
+          .mr-shelf__list li .item-book--selection select:focus {
+            box-shadow: none;
+            outline: none; }
