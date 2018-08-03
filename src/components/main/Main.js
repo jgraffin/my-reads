@@ -1,44 +1,33 @@
 import React, { Component } from 'react'
-import WantToRead from '../shelfs/WantToRead'
+import MyBook from '../my-book/MyBook'
+import * as BooksApi from '../../utils/BooksAPI'
 
 class Main extends Component {
 
 	state = {
-		books: [
-			{
-				"id": "lotr",
-				"title": "The Lord Of The Rings",
-				"imageFolder": "https://pictures.abebooks.com/isbn/9780007149247-uk.jpg",
-				"author": 'Christopher Tolkien',
-				"value": null
-			},
-			{
-				"id": "silmarillion",
-				"title": "Silmarillion",
-				"imageFolder": "https://a-static.mlcdn.com.br/618x463/silmarillion-5a-ed-wmf-martins-fontes-wmf/cliquebooks/503385-3/11e3e1b397b9fe7029c8558152fbdc8a.jpg",
-				"author": 'John Reuel Ronald Tolkien',
-				"value": null
-			},
-			{
-				"id": "harry-potter",
-				"title": "Harry Potter",
-				"imageFolder": "https://ewedit.files.wordpress.com/2016/09/hpchamber.jpg",
-				"author": 'JK. Rowling',
-				"value": null
+		books: []
+	}
 
-			}
-		]
+	componentDidMount = () => {
+		BooksApi.getAll().then((books) => {
+			this.setState({ books })
+		})
 	}
 
 	changeStatus = (book) => {
-
+		this.setState((state) => ({
+			books: state.books.filter((b) => b.status = book)
+		}))
+		debugger;
+		BooksApi.update(book)
 	}
 
 	render() {
+		console.log(this.state.books)
 		return (
 			<main className="mr-main">
 				<div className="container">
-					<WantToRead books={this.state.books} />
+					<MyBook onChangeBookStatus={this.changeStatus} books={this.state.books} />
 				</div>
 			</main>
 		)

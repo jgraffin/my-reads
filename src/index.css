@@ -1,6 +1,6 @@
 /* Mixin helper for media-queries */
 /* Reset All Styles */
-@import url(./components/shelfs/shelf.css);
+@import url(./components/my-book/my-book.css);
 * {
   appearance: none;
   border-radius: 0;
