@@ -4,17 +4,23 @@ import * as BooksAPI from '../../utils/BooksAPI'
 
 class Shelfs extends Component {
 
-	state = {
-		shelfs: [
+	constructor() {
+		super()
+
+		this.shelfs = [
 			{ shelf: 'wantToRead', name: 'Want to Read' },
 			{ shelf: 'currentlyReading', name: 'Currently Reading' },
 			{ shelf: 'read', name: 'Read' }
-		],
+		]
+
+	}
+
+	state = {
 		books: []
 	}
 
 	componentDidMount = () => {
-		BooksAPI.getAll().then((books) => { 
+		BooksAPI.getAll().then((books) => {
 			this.setState({ books })
 			// this.setState((state) => ({
 			// 	books: state.books.filter((books) => books.shelf === this.state.shelfs.filter((s) => s.shelf))		
@@ -24,8 +30,8 @@ class Shelfs extends Component {
 
 	changeStatus = (book) => {
 		this.setState((state) => ({
-			books: state.books.filter((b) => b.status !== book.status )
-		})) 
+			books: state.books.filter((b) => b.status !== book.status)
+		}))
 	}
 
 	render() {
@@ -33,8 +39,8 @@ class Shelfs extends Component {
 		return (
 			<main className="mr-main">
 				<div className="container">
-					{		
-						this.state.shelfs.map((s) => (
+					{
+						this.shelfs.map((s) => (
 							<div className="mr-shelf" key={s.shelf}>
 								<div className="mr-shelf__title">
 									<h2>{s.name}</h2>
