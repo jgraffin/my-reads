@@ -8,9 +8,22 @@ class Shelfs extends Component {
 		super()
 
 		this.shelfs = [
-			{ shelf: 'wantToRead', name: 'Want to Read' },
-			{ shelf: 'currentlyReading', name: 'Currently Reading' },
-			{ shelf: 'read', name: 'Read' }
+			{
+				'id': 'wantToRead',
+				'name': 'Want to Read'
+			},
+			{
+				'id': 'currentlyReading',
+				'name': 'Currently Reading'
+			},
+			{
+				'id': 'read', 
+				'name': 'Read'
+			},
+			{
+				'id': 'none', 
+				'name': 'None'
+			}
 		]
 
 	}
@@ -22,34 +35,31 @@ class Shelfs extends Component {
 	componentDidMount = () => {
 		BooksAPI.getAll().then((books) => {
 			this.setState({ books })
-			// this.setState((state) => ({
-			// 	books: state.books.filter((books) => books.shelf === this.state.shelfs.filter((s) => s.shelf))		
-			// }))
 		})
 	}
 
 	changeStatus = (book) => {
-		this.setState((state) => ({
-			books: state.books.filter((b) => b.status !== book.status)
-		}))
+		console.log(book === this.shelfs.id)
+		// this.setState((state) => ({
+		// 	books: state.books.filter((b) => b.shelf !== this.shelfs)
+		// }))
 	}
 
 	render() {
-		console.log(this.state.books)
 		return (
 			<main className="mr-main">
 				<div className="container">
 					{
-						this.shelfs.map((s) => (
-							<div className="mr-shelf" key={s.shelf}>
+						this.shelfs.map((s) => 
+							<div className="mr-shelf" key={s.id}>
 								<div className="mr-shelf__title">
 									<h2>{s.name}</h2>
 								</div>
 								<div className="mr-shelf__list">
-									<MyBooks onChangeBookStatus={this.changeStatus} books={this.state.books} />
+									<MyBooks onChangeBookStatus={this.changeStatus} books={this.state.books.filter((b) => b.shelf === s.id)} />
 								</div>
 							</div>
-						))
+						)
 					}
 				</div>
 			</main>

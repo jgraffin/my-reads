@@ -3,7 +3,6 @@
 @import url(./components/my-books/my-books.css);
 * {
   appearance: none;
-  border-radius: 0;
   border: 0;
   list-style: none;
   margin: 0;
