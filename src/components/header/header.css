@@ -9,32 +9,41 @@
   overflow: hidden;
   position: relative;
   width: 100%; }
+  .mr-header .container {
+    align-items: center;
+    justify-content: space-between;
+    display: flex; }
   .mr-header::before {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0) 150%);
     content: '';
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', endColorstr='#00000000',GradientType=1 );
     height: 100%;
     left: 0;
-    opacity: 0.9;
+    opacity: 1;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 1; }
   .mr-header__title {
     align-items: center;
-    color: #fff;
     display: inline-flex;
     flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
     height: 50px;
     justify-content: center;
     padding-bottom: 5px;
     position: relative;
-    text-align: center;
     width: 85px;
     z-index: 2; }
+    .mr-header__title h1 {
+      align-items: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      justify-content: center;
+      text-align: center; }
     .mr-header__title svg {
       fill: #fff;
       display: block;

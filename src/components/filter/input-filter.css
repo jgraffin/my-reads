@@ -1,0 +1,71 @@
+.mr-header__filter {
+  display: block;
+  width: 70%; }
+
+.filter-group {
+  position: relative;
+  z-index: 3;
+  border: 1px solid red; }
+  .filter-group input {
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 10px 10px 5px;
+    width: 100%; }
+    .filter-group input:focus {
+      outline: none; }
+    .filter-group input:focus ~ label,
+    .filter-group input:valid ~ label {
+      color: #1abc9c;
+      font-size: 14px;
+      top: -20px; }
+    .filter-group input:focus ~ .bar::before,
+    .filter-group input:focus ~ .bar::after {
+      width: 50%; }
+    .filter-group input:focus ~ .highlight {
+      animation: inputHighlighter 0.3s ease; }
+  .filter-group label {
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    left: 5px;
+    pointer-events: none;
+    position: absolute;
+    top: 10px;
+    transition: 0.2s ease all; }
+  .filter-group .bar {
+    position: relative;
+    display: block;
+    width: 100%; }
+    .filter-group .bar::before, .filter-group .bar::after {
+      background: #1abc9c;
+      bottom: 0;
+      content: '';
+      height: 2px;
+      position: absolute;
+      transition: 0.2s ease all;
+      width: 0;
+      z-index: 2; }
+    .filter-group .bar::before {
+      left: 50%; }
+    .filter-group .bar::after {
+      right: 50%; }
+  .filter-group .highlight {
+    height: 60%;
+    left: 0;
+    opacity: 0.5;
+    pointer-events: none;
+    position: absolute;
+    top: 25%;
+    width: 100px; }
+
+@keyframes inputHighlighter {
+  from {
+    background: #1abc9c; }
+  to {
+    background: transparent;
+    width: 0; } }

@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import MyBooks from '../my-books/MyBooks'
 import * as BooksAPI from '../../utils/BooksAPI'
 
+
 class Shelfs extends Component {
 
 	constructor() {
 		super()
-
 		this.shelfs = [
 			{
 				'id': 'wantToRead',
@@ -25,7 +25,6 @@ class Shelfs extends Component {
 				'name': 'None'
 			}
 		]
-
 	}
 
 	state = {
@@ -38,17 +37,18 @@ class Shelfs extends Component {
 		})
 	}
 
-	changeStatus = (book) => {
-		console.log(book === this.shelfs.id)
-		// this.setState((state) => ({
-		// 	books: state.books.filter((b) => b.shelf !== this.shelfs)
-		// }))
+	changeShelf = (book) => {
+		console.log(book)
+		this.setState((state) => ({
+			books: state.books.filter((b) => b.shelf !== this.shelfs.map((s) => s.id !== book))
+		}))
 	}
 
 	render() {
 		return (
 			<main className="mr-main">
 				<div className="container">
+					
 					{
 						this.shelfs.map((s) => 
 							<div className="mr-shelf" key={s.id}>
@@ -56,7 +56,7 @@ class Shelfs extends Component {
 									<h2>{s.name}</h2>
 								</div>
 								<div className="mr-shelf__list">
-									<MyBooks onChangeBookStatus={this.changeStatus} books={this.state.books.filter((b) => b.shelf === s.id)} />
+									<MyBooks onChangeBookShelf={this.changeShelf} books={this.state.books.filter((b) => b.shelf === s.id)} />
 								</div>
 							</div>
 						)

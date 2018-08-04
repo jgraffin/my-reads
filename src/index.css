@@ -1,6 +1,7 @@
 /* Mixin helper for media-queries */
 /* Reset All Styles */
 @import url(./components/my-books/my-books.css);
+@import url(./components/filter/input-filter.css);
 * {
   appearance: none;
   border: 0;
