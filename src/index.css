@@ -13,6 +13,7 @@
   display: block;
   margin: 0 auto;
   padding: 0 15px;
+  position: relative;
   width: 100%; }
   @media (min-width: 768px) {
     .container {

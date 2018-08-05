@@ -4,9 +4,10 @@
 }
 
 .filter-group { 
-	position: relative; 
+	position: absolute;
+	right: 0;
+	top: -90px; 
 	z-index: 3;
-	border: 1px solid red;
 
 	input {
 		background: transparent;

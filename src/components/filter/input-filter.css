@@ -3,9 +3,10 @@
   width: 70%; }
 
 .filter-group {
-  position: relative;
-  z-index: 3;
-  border: 1px solid red; }
+  position: absolute;
+  right: 0;
+  top: -90px;
+  z-index: 3; }
   .filter-group input {
     background: transparent;
     border-bottom: 1px solid #fff;
