@@ -1,0 +1,102 @@
+.mr-header__filter {
+	display: block;
+	width: 70%;	
+}
+
+.filter-group { 
+	position: absolute;
+	right: 0;
+	top: -90px; 
+	z-index: 3;
+
+	input {
+		background: transparent;
+		border-bottom: 1px solid #fff;
+		color: #fff;
+		display: block;
+		font-size: 18px;
+		font-weight: 600;
+		padding: 10px 10px 10px 5px;
+		width: 100%;
+
+		&:focus { 
+			outline: none; 
+		}
+
+		&:focus ~ label, 
+		&:valid ~ label {
+			color:#1abc9c;
+			font-size: 14px;
+			top: -20px;
+		}
+
+		&:focus ~ .bar::before, 
+		&:focus ~ .bar::after {
+			width: 50%;
+		}
+
+		&:focus ~ .highlight {
+			animation: inputHighlighter 0.3s ease;
+		}
+	}
+	 
+	label	{
+		color:#fff; 
+		font-size: 18px;
+		font-family: 'Montserrat';
+		font-weight: 400;
+		left: 5px;
+		pointer-events: none;
+		position: absolute;
+		top: 10px;
+		transition: 0.2s ease all; 
+	}
+	 
+	.bar {
+		position: relative; 
+		display: block; 
+		width: 100%; 
+
+		&::before, 
+		&::after 	{
+			background:#1abc9c; 
+			bottom: 0; 
+			content: '';
+			height: 2px; 
+			position: absolute;
+			transition: 0.2s ease all; 
+			width: 0;
+			z-index: 2;
+		}
+
+		&::before {
+			left: 50%;
+		}
+
+		&::after {
+			right: 50%; 
+		}
+	}
+
+	.highlight {
+		height: 60%; 
+		left: 0;
+		opacity: 0.5;
+		pointer-events: none;
+		position: absolute;
+		top: 25%; 
+		width: 100px; 
+	}
+	 
+	@keyframes inputHighlighter {
+		from	{ 
+			background: #1abc9c; 
+		}
+
+		to	{ 
+			background: transparent; 
+			width: 0; 
+		}
+	}
+ }
+ 
