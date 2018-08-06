@@ -5,7 +5,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  filter: grayscale(1);
   height: 120px;
   overflow: hidden;
   position: relative;

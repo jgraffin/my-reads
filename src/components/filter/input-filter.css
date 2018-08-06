@@ -5,7 +5,8 @@
 .filter-group {
   position: absolute;
   right: 0;
-  top: -90px;
+  top: -76px;
+  width: 70%;
   z-index: 3; }
   .filter-group input {
     background: transparent;
@@ -18,8 +19,7 @@
     width: 100%; }
     .filter-group input:focus {
       outline: none; }
-    .filter-group input:focus ~ label,
-    .filter-group input:valid ~ label {
+    .filter-group input:focus ~ label {
       color: #1abc9c;
       font-size: 14px;
       top: -20px; }

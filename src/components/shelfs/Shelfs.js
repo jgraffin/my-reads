@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MyBooks from '../my-books/MyBooks'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
+// import sortBy from 'sort-by'
 
 class Shelfs extends Component {
 
@@ -18,11 +18,11 @@ class Shelfs extends Component {
 				'name': 'Currently Reading'
 			},
 			{
-				'id': 'read', 
+				'id': 'read',
 				'name': 'Read'
 			},
 			{
-				'id': 'none', 
+				'id': 'none',
 				'name': 'None'
 			}
 		]
@@ -53,17 +53,13 @@ class Shelfs extends Component {
 	render() {
 
 		let showingBooks
-		if (this.state.query) {
-			const match = new RegExp(escapeRegExp(this.state.query), 'i')
-			showingBooks = this.state.books.filter((b) => match.test(b.name))
-		} else {
-			showingBooks = this.state.books
-		}
+		const match = new RegExp(escapeRegExp(this.state.query), 'i')
+		this.state.query ? showingBooks = this.state.books.filter((b) => match.test(b.title)) : showingBooks = this.state.books
 
 		return (
 			<main className="mr-main">
 				<div className="container">
-					<div className="filter-group">      
+					<div className="filter-group">
 						<input
 							type="search"
 							spellCheck="false"
@@ -72,21 +68,16 @@ class Shelfs extends Component {
 						/>
 						<span className="highlight"></span>
 						<span className="bar"></span>
-						<label>{this.props.label} </label>
-					</div>		
+						<label>Type some book</label>
+					</div>
 					{
-						this.shelfs.map((s) => 
+						this.shelfs.map((s) =>
 							<div className="mr-shelf" key={s.id}>
 								<div className="mr-shelf__title">
 									<h2>{s.name}</h2>
 								</div>
 								<div className="mr-shelf__list">
-									
-										<MyBooks
-											onChangeBookShelf={this.changeShelf}
-											books={this.state.books.filter((b) => b.shelf === s.id)}
-										/>
-
+									<MyBooks onChangeBookShelf={this.changeShelf} books={showingBooks.filter((b) => b.shelf === s.id)} />
 								</div>
 							</div>
 						)

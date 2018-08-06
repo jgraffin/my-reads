@@ -6,7 +6,8 @@
 .filter-group { 
 	position: absolute;
 	right: 0;
-	top: -90px; 
+	top: -76px;
+	width: 70%; 
 	z-index: 3;
 
 	input {
@@ -23,8 +24,7 @@
 			outline: none; 
 		}
 
-		&:focus ~ label, 
-		&:valid ~ label {
+		&:focus ~ label {
 			color:#1abc9c;
 			font-size: 14px;
 			top: -20px;

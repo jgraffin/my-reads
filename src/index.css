@@ -1,14 +1,7 @@
 /* Mixin helper for media-queries */
 /* Reset All Styles */
-<<<<<<< HEAD
-@import url(./components/my-book/my-book.css);
-=======
 @import url(./components/my-books/my-books.css);
-<<<<<<< HEAD
->>>>>>> 1dec1dd10af74b799d2e968a42021d50f3f896e8
-=======
 @import url(./components/filter/input-filter.css);
->>>>>>> 08e2c0054a6023f63b70ddd45a80b8cee65a614a
 * {
   appearance: none;
   border: 0;
