@@ -39,11 +39,13 @@ class Shelfs extends Component {
 		})
 	}
 
-	changeShelf = (book) => {
-		console.log(book)
+	changeShelf = (valueClicked) => {
+		console.log(valueClicked)
+
 		this.setState((state) => ({
-			books: state.books.filter((b) => b.shelf !== this.shelfs.map((s) => s.id !== book))
+			books: state.books.filter((b) => b.shelf = valueClicked) && this.state.books.filter((b) => b.id !== this.state.books.id)
 		}))
+
 	}
 
 	updateQuery = (query) => {
@@ -51,6 +53,7 @@ class Shelfs extends Component {
 	}
 
 	render() {
+		console.log(this.state.books)
 
 		let showingBooks
 		const match = new RegExp(escapeRegExp(this.state.query), 'i')
