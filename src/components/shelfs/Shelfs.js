@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MyBooks from '../my-books/MyBooks'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
-// import sortBy from 'sort-by'
+import sortBy from 'sort-by'
 
 class Shelfs extends Component {
 
@@ -39,25 +39,29 @@ class Shelfs extends Component {
 		})
 	}
 
-	changeShelf = (valueClicked) => {
-		console.log(valueClicked)
-
-		this.setState((state) => ({
-			books: state.books.filter((b) => b.shelf = valueClicked) && this.state.books.filter((b) => b.id !== this.state.books.id)
-		}))
-
+	changeStatus = (shelf, book) => {
+		this.setState({
+			book: book.shelf = shelf
+		})
+		BooksAPI.update(book, shelf)
 	}
 
 	updateQuery = (query) => {
-		this.setState({ query: query.trim() })
+		this.setState({
+			query: query.trim()
+		})
 	}
 
 	render() {
 		console.log(this.state.books)
 
-		let showingBooks
+		let showingBooks, getTitle
 		const match = new RegExp(escapeRegExp(this.state.query), 'i')
-		this.state.query ? showingBooks = this.state.books.filter((b) => match.test(b.title)) : showingBooks = this.state.books
+
+		getTitle = this.state.books.filter((b) => match.test(b.title))
+		this.state.query ? showingBooks = getTitle : showingBooks = this.state.books
+		
+		showingBooks.sort(sortBy('name'))
 
 		return (
 			<main className="mr-main">
@@ -80,7 +84,7 @@ class Shelfs extends Component {
 									<h2>{s.name}</h2>
 								</div>
 								<div className="mr-shelf__list">
-									<MyBooks onChangeBookShelf={this.changeShelf} books={showingBooks.filter((b) => b.shelf === s.id)} />
+									<MyBooks onChangeBookShelf={this.changeStatus} books={showingBooks.filter((b) => b.shelf === s.id)} />
 								</div>
 							</div>
 						)

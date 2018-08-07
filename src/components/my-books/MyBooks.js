@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function MyBooks(props) {
 	return (
 		<ul>
@@ -9,7 +8,7 @@ function MyBooks(props) {
 					<li key={b.id}>
 						<div className="item-book--selection">
 							{
-								<select onChange={(e) => props.onChangeBookShelf(e.target.value)}>
+								<select defaultValue={b.shelf} onChange={event => props.onChangeBookShelf(event.target.value, b)}>
 									<option value="moveto" disabled>Move to...</option>
 									<option value="wantToRead">Want to Read</option>
 									<option value="read">Read</option>
