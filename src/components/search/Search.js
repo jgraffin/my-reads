@@ -8,30 +8,45 @@ import sortBy from 'sort-by'
 class Search extends Component {
 
 	state = {
-		books: [],
-		query: ''
+		query: '',
+		results: []
 	}
 
-	componentDidMount = () => {
-		BooksAPI.getAll().then((books) => {
-			this.setState({ books })
+	updateAdvancedQuery = (query) => {
+		this.setState({
+			query: query
+		}, () => {
+			if (this.state.query && this.state.query.length > 1) {
+				if (this.state.query.length % 2 === 0) {
+					this.getInfo()
+				}
+			}
 		})
 	}
 
-	updateAdvancedQuery = (e) => {
-		console.log(e);
+	getInfo = () => {
+		BooksAPI.search().then((query) => {
+			this.setState({ results: query })
+		})
+
+		// axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
+		// 	.then(({ data }) => {
+		// 		this.setState({
+		// 			results: data.data
+		// 		})
+		// 	})
 	}
 
-	render() { 
-		console.log(this.state.books)
+	render() {
+		console.log(this.state.results)
 
-		let showingBooks, getTitle
-		const match = new RegExp(escapeRegExp(this.state.query), 'i')
+		// let showingBooks, getTitle
+		// const match = new RegExp(escapeRegExp(this.state.query), 'i')
 
-		getTitle = this.state.books.filter((b) => match.test(b.title))
-		this.state.query ? showingBooks = getTitle : showingBooks = this.state.books
-		
-		showingBooks.sort(sortBy('name'))
+		// getTitle = this.state.books.filter((b) => match.test(b.title))
+		// this.state.query ? showingBooks = getTitle : showingBooks = this.state.books
+
+		// showingBooks.sort(sortBy('name'))
 
 		return (
 			<div className="mr-search">
@@ -49,11 +64,12 @@ class Search extends Component {
 					</h2>
 
 					<Filter onUpdateQuery={this.updateAdvancedQuery} />
-					
+
 					<div className="mr-search-results">
-						<table>
+						<p>{this.state.query}</p>
+						{/* <table>
 							{
-								showingBooks.map((b) => (
+								this.state.books.map((b) => (
 									<tr key={b.id}>
 										<td className="mr-search-results__image">
 											<img src={b.imageLinks.smallThumbnail} alt={b.title} />
@@ -68,7 +84,7 @@ class Search extends Component {
 														<strong>Authors</strong>
 														<ul>
 															{
-																b.authors.map((author) => 
+																b.authors.map((author) =>
 																	<li key={author}>{author}</li>
 																)
 															}
@@ -88,7 +104,7 @@ class Search extends Component {
 									</tr>
 								))
 							}
-						</table>
+						</table> */}
 					</div>
 				</div>
 			</div>
