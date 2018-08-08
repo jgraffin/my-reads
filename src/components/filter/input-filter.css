@@ -4,9 +4,9 @@
 
 .filter-group {
   position: absolute;
-  right: 0;
-  top: -76px;
-  width: 70%;
+  right: 15%;
+  top: -82px;
+  width: 60%;
   z-index: 3; }
   .filter-group input {
     background: transparent;

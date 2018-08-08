@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MyBooks from '../my-books/MyBooks'
+import Filter from '../filter/Filter'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
@@ -66,17 +67,9 @@ class Shelfs extends Component {
 		return (
 			<main className="mr-main">
 				<div className="container">
-					<div className="filter-group">
-						<input
-							type="search"
-							spellCheck="false"
-							value={this.state.query}
-							onChange={(event) => this.updateQuery(event.target.value)}
-						/>
-						<span className="highlight"></span>
-						<span className="bar"></span>
-						<label>Type some book</label>
-					</div>
+					
+					<Filter onUpdateQuery={this.updateQuery} />
+
 					{
 						this.shelfs.map((s) =>
 							<div className="mr-shelf" key={s.id}>

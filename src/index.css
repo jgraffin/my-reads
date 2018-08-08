@@ -2,6 +2,7 @@
 /* Reset All Styles */
 @import url(./components/my-books/my-books.css);
 @import url(./components/filter/input-filter.css);
+@import url(./components/search/search.css);
 * {
   appearance: none;
   border: 0;

@@ -1,19 +1,8 @@
 import React from 'react'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 
-function Filter(props){
-
-		let showingBooks
-		if (props.query) {
-			const match = new RegExp(escapeRegExp(props.query), 'i')
-			showingBooks = props.books.filter((book) => match.test(book.name))
-		} else {
-			showingBooks = props.books
-		}
-	
+function Filter(props){	
 		return (
-			<div className="filter-group">      
+			<div className="filter-group">
 				<input
 					type="search"
 					spellCheck="false"
@@ -22,7 +11,7 @@ function Filter(props){
 				/>
 				<span className="highlight"></span>
 				<span className="bar"></span>
-				<label>{props.label} </label>
+				<label>Type some book</label>
 			</div>
 		)
 }
