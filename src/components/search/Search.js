@@ -2,43 +2,49 @@ import React, { Component } from 'react'
 import Filter from '../filter/Filter'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../../utils/BooksAPI'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
+// import escapeRegExp from 'escape-string-regexp'
+// import sortBy from 'sort-by'
 
 class Search extends Component {
 
 	state = {
-		query: '',
-		results: []
+		query: ''
 	}
 
-	updateAdvancedQuery = (query) => {
+	
+	
+
+	updateAdvancedQuery = (value) => {
 		this.setState({
-			query: query
-		}, () => {
-			if (this.state.query && this.state.query.length > 1) {
-				if (this.state.query.length % 2 === 0) {
-					this.getInfo()
-				}
-			}
-		})
-	}
-
-	getInfo = () => {
-		BooksAPI.search().then((query) => {
-			this.setState({ results: query })
+			query: value
 		})
 
-		// axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
-		// 	.then(({ data }) => {
-		// 		this.setState({
-		// 			results: data.data
-		// 		})
-		// 	})
+		const data = this.state.query
+
+		BooksAPI.search().then((s) => {
+			// n sei oq fazer aqui =(
+		})
+
+
+		// export const search = (query) =>
+		// fetch(`${api}/search`, {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		...headers,
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	body: JSON.stringify({ query })
+		// }).then(res => res.json())
+		// 	.then(data => data.books)
+			
+			
 	}
+
+	
 
 	render() {
-		console.log(this.state.results)
+		// console.log(this.state.query)
+		// console.log(this.state.results)
 
 		// let showingBooks, getTitle
 		// const match = new RegExp(escapeRegExp(this.state.query), 'i')
@@ -67,6 +73,7 @@ class Search extends Component {
 
 					<div className="mr-search-results">
 						<p>{this.state.query}</p>
+						
 						{/* <table>
 							{
 								this.state.books.map((b) => (
