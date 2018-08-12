@@ -2,57 +2,31 @@ import React, { Component } from 'react'
 import Filter from '../filter/Filter'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../../utils/BooksAPI'
-// import escapeRegExp from 'escape-string-regexp'
-// import sortBy from 'sort-by'
 
 class Search extends Component {
 
 	state = {
-		query: ''
+		query: '',
+		items: []
 	}
 
-	
-	
+	updateAdvancedQuery = (query) => {
 
-	updateAdvancedQuery = (value) => {
 		this.setState({
-			query: value
-		})
+			query: query.trim()
+		})	
 
-		const data = this.state.query
-
-		BooksAPI.search().then((s) => {
-			// n sei oq fazer aqui =(
-		})
-
-
-		// export const search = (query) =>
-		// fetch(`${api}/search`, {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		...headers,
-		// 		'Content-Type': 'application/json'
-		// 	},
-		// 	body: JSON.stringify({ query })
-		// }).then(res => res.json())
-		// 	.then(data => data.books)
-			
-			
+		let value = this.state.query
+		if (value !== '') {
+			BooksAPI.search(value).then((data) => {
+				this.setState({
+					items: [...data]
+				})
+			})
+		}
 	}
-
-	
 
 	render() {
-		// console.log(this.state.query)
-		// console.log(this.state.results)
-
-		// let showingBooks, getTitle
-		// const match = new RegExp(escapeRegExp(this.state.query), 'i')
-
-		// getTitle = this.state.books.filter((b) => match.test(b.title))
-		// this.state.query ? showingBooks = getTitle : showingBooks = this.state.books
-
-		// showingBooks.sort(sortBy('name'))
 
 		return (
 			<div className="mr-search">
@@ -72,46 +46,38 @@ class Search extends Component {
 					<Filter onUpdateQuery={this.updateAdvancedQuery} />
 
 					<div className="mr-search-results">
-						<p>{this.state.query}</p>
-						
-						{/* <table>
+						<ul>
 							{
-								this.state.books.map((b) => (
-									<tr key={b.id}>
-										<td className="mr-search-results__image">
-											<img src={b.imageLinks.smallThumbnail} alt={b.title} />
-										</td>
-										<td className="mr-search-results__text">
-											<table>
-												<tr>
-													<td className="text-col text-col-title">
-														<h2>{b.title.length >= 16 ? b.title.substr(0, 16) + '...' : b.title}</h2>
-													</td>
-													<td className="text-col text-col-authors">
-														<strong>Authors</strong>
-														<ul>
-															{
-																b.authors.map((author) =>
-																	<li key={author}>{author}</li>
-																)
-															}
-														</ul>
-													</td>
-													<td className="text-col text-col-description">
-														<strong>Description</strong>
-														<p>{b.description.substr(0, 80) + '...'}</p>
-													</td>
-													<td className="text-col text-col-category">
-														<strong>Categories</strong>
-														<p>{b.categories}</p>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
+								this.state.items.map((index) => (
+									<li key={index}>
+										<div className="mr-search-results__image">
+											<img src={index.imageLinks.smallThumbnail ? index.imageLinks.smallThumbnail : 'no image available'} alt={index.title} />
+										</div>
+										<div className="mr-search-results__text">
+											<div className="text-col text-col-title">
+												<h2>{index.title ? index.title : 'no title'}</h2>
+											</div>
+											<div className="text-col text-col-authors">
+												<strong>Authors</strong>
+												<ul>
+													{
+														index.authors ? index.authors : 'no authors'
+													}
+												</ul>
+											</div>
+											<div className="text-col text-col-description">
+												<strong>Description</strong>
+												<p>{index.description ? index.description : 'no description'}</p>
+											</div>
+											<div className="text-col text-col-category">
+												<strong>Categories</strong>
+												<p>{index.categories ? index.categories : 'no categoy available'}</p>
+											</div>
+										</div>
+									</li>
 								))
 							}
-						</table> */}
+						</ul>
 					</div>
 				</div>
 			</div>

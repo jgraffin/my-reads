@@ -1,6 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-function MyBooks(props) {
+const MyBooks = (props) => {
+
+	MyBooks.propTypes = {
+		books: PropTypes.array.isRequired,
+		onChangeBookShelf: PropTypes.func.isRequired
+	}
+
 	return (
 		<ul>
 			{

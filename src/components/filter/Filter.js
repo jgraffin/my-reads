@@ -4,10 +4,11 @@ function Filter(props){
 		return (
 			<div className="filter-group">
 				<input
-					type="search"
-					spellCheck="false"
-					value={props.query}
 					onChange={(event) => props.onUpdateQuery(event.target.value)}
+					required
+					spellCheck="false"
+					type="search"
+					value={props.query}
 				/>
 				<span className="highlight"></span>
 				<span className="bar"></span>

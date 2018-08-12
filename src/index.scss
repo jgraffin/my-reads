@@ -36,7 +36,6 @@
 	padding: 0;
 }
 
-
 .container {
 	display: block;
 	margin: 0 auto;
@@ -56,8 +55,48 @@
 
 }
 
+
+@keyframes Fade {
+	from {
+		transform: translateY(-10px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideIn{
+	from{
+		opacity: 0;
+		transform: translateX(-15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes SlideInSearch {
+	from {
+		opacity: 0;
+		transform: translateY(0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(100px);
+	}
+}
+
+.mr-shelf {
+	animation: Fade ease-in-out 0.5s forwards;
+}
+
 @import './components/my-books/my-books.css';
 @import './components/filter/input-filter.css';
 @import './components/search/search.css';
+@import './components/loader/loader.css';
 
 

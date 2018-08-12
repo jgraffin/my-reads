@@ -3,6 +3,7 @@
 @import url(./components/my-books/my-books.css);
 @import url(./components/filter/input-filter.css);
 @import url(./components/search/search.css);
+@import url(./components/loader/loader.css);
 * {
   appearance: none;
   border: 0;
@@ -25,3 +26,30 @@
     .container {
       max-width: 100%;
       width: 970px; } }
+
+@keyframes Fade {
+  from {
+    transform: translateY(-10px);
+    opacity: 0; }
+  to {
+    transform: translateY(0);
+    opacity: 1; } }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-15px); }
+  to {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes SlideInSearch {
+  from {
+    opacity: 0;
+    transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(100px); } }
+
+.mr-shelf {
+  animation: Fade ease-in-out 0.5s forwards; }
