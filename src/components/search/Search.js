@@ -20,7 +20,7 @@ class Search extends Component {
 		if (value !== '') {
 			BooksAPI.search(value).then((data) => {
 				this.setState({
-					items: [...data]
+					items: [...data] 
 				})
 			})
 		}
@@ -49,7 +49,7 @@ class Search extends Component {
 						<ul>
 							{
 								this.state.items.map((index) => (
-									<li key={index}>
+									<li key={index.id}>
 										<div className="mr-search-results__image">
 											<img src={index.imageLinks.smallThumbnail ? index.imageLinks.smallThumbnail : 'no image available'} alt={index.title} />
 										</div>
