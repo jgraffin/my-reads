@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Filter from '../filter/Filter'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../../utils/BooksAPI'
+import escapeRegExp from 'escape-string-regexp'
+import sort from 'sort-by'
 
 class Search extends Component {
 
@@ -28,6 +30,14 @@ class Search extends Component {
 
 	render() {
 
+		let getBooks
+		if (this.state.query !== '') {
+			const match = new RegExp(escapeRegExp(this.state.query), 'i')
+			getBooks = this.state.items.filter((item) => match.test(item.title))
+		} else {
+			getBooks = this.state.items
+		}
+		
 		return (
 			<div className="mr-search">
 				<div className="container">
@@ -48,30 +58,30 @@ class Search extends Component {
 					<div className="mr-search-results">
 						<ul>
 							{
-								this.state.items.map((index) => (
-									<li key={index.id}>
+								getBooks.map((item) => (
+									<li key={item.id}>
 										<div className="mr-search-results__image">
-											<img src={index.imageLinks.smallThumbnail ? index.imageLinks.smallThumbnail : 'no image available'} alt={index.title} />
+											{/* <img src={item.imageLinks.thumbnail} alt={item.title} /> */}
 										</div>
 										<div className="mr-search-results__text">
 											<div className="text-col text-col-title">
-												<h2>{index.title ? index.title : 'no title'}</h2>
+												<h2>{item.title}</h2>
 											</div>
 											<div className="text-col text-col-authors">
 												<strong>Authors</strong>
 												<ul>
-													{
-														index.authors ? index.authors : 'no authors'
-													}
+													{item.authors.map(author => 
+														<li>{author}</li>
+													)}
 												</ul>
 											</div>
 											<div className="text-col text-col-description">
 												<strong>Description</strong>
-												<p>{index.description ? index.description : 'no description'}</p>
+												<p>{item.description}</p>
 											</div>
 											<div className="text-col text-col-category">
 												<strong>Categories</strong>
-												<p>{index.categories ? index.categories : 'no categoy available'}</p>
+												<p>{item.categories}</p>
 											</div>
 										</div>
 									</li>
