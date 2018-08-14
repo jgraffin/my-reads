@@ -11,19 +11,15 @@ class Search extends Component {
 		query: ''
 	}
 
-	
-	
-
 	updateAdvancedQuery = (value) => {
 		this.setState({
 			query: value
 		})
 
-		const data = this.state.query
-
-		BooksAPI.search().then((s) => {
-			// n sei oq fazer aqui =(
+		this.setState((state) => {
+			BooksAPI.search(state.query)
 		})
+
 
 
 		// export const search = (query) =>
@@ -36,13 +32,14 @@ class Search extends Component {
 		// 	body: JSON.stringify({ query })
 		// }).then(res => res.json())
 		// 	.then(data => data.books)
-			
-			
+
+
 	}
 
-	
+
 
 	render() {
+
 		// console.log(this.state.query)
 		// console.log(this.state.results)
 
@@ -73,7 +70,7 @@ class Search extends Component {
 
 					<div className="mr-search-results">
 						<p>{this.state.query}</p>
-						
+
 						{/* <table>
 							{
 								this.state.books.map((b) => (

@@ -44,7 +44,7 @@ class Shelfs extends Component {
 		this.setState({
 			book: book.shelf = shelf
 		})
-		// BooksAPI.update(book, shelf)
+		BooksAPI.update(book, shelf)
 	}
 
 	updateQuery = (query) => {
@@ -61,13 +61,13 @@ class Shelfs extends Component {
 
 		getTitle = this.state.books.filter((b) => match.test(b.title))
 		this.state.query ? showingBooks = getTitle : showingBooks = this.state.books
-		
+
 		showingBooks.sort(sortBy('name'))
 
 		return (
 			<main className="mr-main">
 				<div className="container">
-					
+
 					<Filter onUpdateQuery={this.updateQuery} />
 
 					{
