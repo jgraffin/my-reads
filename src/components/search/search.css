@@ -1,8 +1,9 @@
 .mr-search {
-  background: #ecf0f1;
+  animation: Fade ease-in-out 0.2s forwards;
+  background: rgba(0, 0, 0, 0.8);
   height: 100%;
   left: 0;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 999; }
@@ -72,7 +73,6 @@
     margin-top: 20px;
     overflow-x: hidden;
     overflow-y: auto;
-    height: 200px;
     width: 100%; }
     .mr-search-results ul {
       display: block;

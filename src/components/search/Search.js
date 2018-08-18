@@ -3,41 +3,44 @@ import Filter from '../filter/Filter'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
-import sort from 'sort-by'
 
 class Search extends Component {
 
 	state = {
-		query: '',
+		value: '',
 		items: []
 	}
 
-	updateAdvancedQuery = (query) => {
-
+	updateAdvancedQuery = (value) => {
+		
+		
 		this.setState({
-			query: query.trim()
+			value: value
 		})	
 
-		let value = this.state.query
-		if (value !== '') {
+		// let value = this.state.value
+
+		if (value.length > 0) {
 			BooksAPI.search(value).then((data) => {
 				this.setState({
-					items: [...data] 
+					items: [ ...data ]
 				})
+			})		
+		} else {
+			this.setState({
+				items: []
 			})
 		}
 	}
 
 	render() {
-
-		let getBooks
-		if (this.state.query !== '') {
-			const match = new RegExp(escapeRegExp(this.state.query), 'i')
-			getBooks = this.state.items.filter((item) => match.test(item.title))
-		} else {
-			getBooks = this.state.items
-		}
 		
+		let getBooks
+		const match = new RegExp(escapeRegExp(this.state.value), 'i')
+		getBooks = this.state.items.filter((b) => match.test(b.title))
+
+		console.log(getBooks)
+
 		return (
 			<div className="mr-search">
 				<div className="container">
@@ -58,30 +61,22 @@ class Search extends Component {
 					<div className="mr-search-results">
 						<ul>
 							{
-								getBooks.map((item) => (
-									<li key={item.id}>
+								getBooks.map((i) => (
+									<li key={i.id}>
 										<div className="mr-search-results__image">
-											{/* <img src={item.imageLinks.thumbnail} alt={item.title} /> */}
+											{/* <img src={i.imageLinks.smallThumbnail} alt={i.title} /> */}
 										</div>
 										<div className="mr-search-results__text">
 											<div className="text-col text-col-title">
-												<h2>{item.title}</h2>
+												<h2>{i.title}</h2>
 											</div>
 											<div className="text-col text-col-authors">
 												<strong>Authors</strong>
-												<ul>
-													{item.authors.map(author => 
-														<li>{author}</li>
-													)}
-												</ul>
-											</div>
-											<div className="text-col text-col-description">
-												<strong>Description</strong>
-												<p>{item.description}</p>
+												<p>{i.author}</p>
 											</div>
 											<div className="text-col text-col-category">
 												<strong>Categories</strong>
-												<p>{item.categories}</p>
+												<p>{i.categories}</p>
 											</div>
 										</div>
 									</li>
