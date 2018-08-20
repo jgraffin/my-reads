@@ -3,7 +3,6 @@ import MyBooks from '../my-books/MyBooks'
 import Filter from '../filter/Filter'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 import Loader from '../loader/Loader';
 
 class Shelfs extends Component {
@@ -67,8 +66,6 @@ class Shelfs extends Component {
 
 		getTitle = this.state.books.filter((b) => match.test(b.title))
 		this.state.query ? showingBooks = getTitle : showingBooks = this.state.books
-
-		showingBooks.sort(sortBy('name'))
 
 		if (loading) {
 			return (

@@ -24,7 +24,7 @@
       margin: 30px 0;
       width: 100%; }
     .mr-shelf__list li {
-      animation: Fade ease-in-out 0.5s forwards;
+      animation: Fade ease-in-out 0.3s forwards;
       position: relative;
       margin-right: 20px;
       width: 120px; }
