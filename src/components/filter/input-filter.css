@@ -3,9 +3,10 @@
   width: 70%; }
 
 .filter-group {
+  animation: Fade ease-in-out 0.5s forwards;
   position: absolute;
   right: 15%;
-  top: -82px;
+  top: -110px;
   width: 60%;
   z-index: 3; }
   .filter-group input {
@@ -13,15 +14,16 @@
     border-bottom: 1px solid #fff;
     color: #fff;
     display: block;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     padding: 10px 10px 10px 5px;
     width: 100%; }
     .filter-group input:focus {
       outline: none; }
-    .filter-group input:focus ~ label {
+    .filter-group input:focus ~ label,
+    .filter-group input:valid ~ label {
       color: #1abc9c;
-      font-size: 14px;
+      font-size: 10px;
       top: -20px; }
     .filter-group input:focus ~ .bar::before,
     .filter-group input:focus ~ .bar::after {
@@ -30,7 +32,7 @@
       animation: inputHighlighter 0.3s ease; }
   .filter-group label {
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Montserrat';
     font-weight: 400;
     left: 5px;

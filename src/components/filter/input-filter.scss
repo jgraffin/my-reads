@@ -4,9 +4,10 @@
 }
 
 .filter-group { 
+	animation: Fade ease-in-out 0.5s forwards;
 	position: absolute;
 	right: 15%;
-	top: -82px;
+	top: -110px;
 	width: 60%; 
 	z-index: 3;
 
@@ -15,7 +16,7 @@
 		border-bottom: 1px solid #fff;
 		color: #fff;
 		display: block;
-		font-size: 18px;
+		font-size: 16px;
 		font-weight: 600;
 		padding: 10px 10px 10px 5px;
 		width: 100%;
@@ -24,9 +25,10 @@
 			outline: none; 
 		}
 
-		&:focus ~ label {
+		&:focus ~ label,
+		&:valid ~ label {
 			color:#1abc9c;
-			font-size: 14px;
+			font-size: 10px;
 			top: -20px;
 		}
 
@@ -42,7 +44,7 @@
 	 
 	label	{
 		color:#fff; 
-		font-size: 18px;
+		font-size: 16px;
 		font-family: 'Montserrat';
 		font-weight: 400;
 		left: 5px;
