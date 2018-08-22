@@ -84,38 +84,49 @@
     overflow-y: auto;
     width: 100%; }
     .mr-search-results ul {
-      display: block;
+      display: flex;
+      flex-wrap: wrap;
       width: 100%; }
       .mr-search-results ul li {
         display: flex;
-        justify-content: space-between; }
+        height: 150px;
+        justify-content: flex-start;
+        margin-right: 22px;
+        position: relative;
+        width: 150px;
+        margin-bottom: 30px; }
     .mr-search-results__image {
-      border-radius: 3px;
-      height: 60px;
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100px;
       overflow: hidden;
-      width: 50px; }
+      width: 100%; }
       .mr-search-results__image img {
         display: block;
         width: 100%; }
     .mr-search-results__text {
-      display: flex;
+      background: white;
+      bottom: 0;
+      flex-direction: column;
       justify-content: flex-start;
-      width: 620px; }
-      .mr-search-results__text .text-col {
-        padding-right: 10px; }
-        .mr-search-results__text .text-col strong {
-          font-size: 10px;
-          text-transform: uppercase;
-          font-family: 'Montserrat';
-          font-weight: 600; }
-        .mr-search-results__text .text-col h2, .mr-search-results__text .text-col p, .mr-search-results__text .text-col li {
-          font-family: 'Montserrat';
-          font-weight: 600;
-          font-size: 13px; }
-        .mr-search-results__text .text-col p, .mr-search-results__text .text-col li {
-          font-weight: 400;
-          font-size: 11px;
-          line-height: 16px; }
+      left: 0;
+      position: absolute;
+      padding: 10px;
+      width: 100%; }
+      .mr-search-results__text .text-col strong {
+        font-size: 10px;
+        text-transform: uppercase;
+        font-family: 'Montserrat';
+        font-weight: 600; }
+      .mr-search-results__text .text-col h2, .mr-search-results__text .text-col p, .mr-search-results__text .text-col li {
+        font-family: 'Montserrat';
+        font-weight: 600;
+        font-size: 13px; }
+      .mr-search-results__text .text-col p, .mr-search-results__text .text-col li {
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 16px; }
   .mr-search .container {
     animation: SlideInSearch ease-in-out 0.5s forwards;
     background: #fff;

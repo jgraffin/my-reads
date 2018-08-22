@@ -21,10 +21,6 @@ class Shelfs extends Component {
 			{
 				'id': 'read',
 				'name': 'Read'
-			},
-			{
-				'id': 'none',
-				'name': 'None'
 			}
 		]
 	}
@@ -48,7 +44,7 @@ class Shelfs extends Component {
 		this.setState({
 			book: book.shelf = shelf
 		})
-		// BooksAPI.update(book, shelf)
+		BooksAPI.update(book, shelf)
 	}
 
 	updateQuery = (query) => {
