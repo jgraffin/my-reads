@@ -48,7 +48,7 @@ class Shelfs extends Component {
 		this.setState({
 			book: book.shelf = shelf
 		})
-		// BooksAPI.update(book, shelf)
+		BooksAPI.update(book, shelf)
 	}
 
 	updateQuery = (query) => {

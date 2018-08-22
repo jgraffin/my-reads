@@ -6,24 +6,43 @@ import escapeRegExp from 'escape-string-regexp'
 
 class Search extends Component {
 
+	constructor() {
+		super()
+		this.shelfs = [
+			{
+				'id': 'wantToRead',
+				'name': 'Want to Read'
+			},
+			{
+				'id': 'currentlyReading',
+				'name': 'Currently Reading'
+			},
+			{
+				'id': 'read',
+				'name': 'Read'
+			},
+			{
+				'id': 'none',
+				'name': 'None'
+			}
+		]
+	}
+
 	state = {
 		value: '',
 		items: []
 	}
 
 	updateAdvancedQuery = (value) => {
-
 		this.setState({
 			value: value.trim()
 		})
-
 		if (this.state.value) {
-			BooksAPI.search(this.state.value)
-				.then((data) => {
-					this.setState({
-						items: [...data]
-					})
+			BooksAPI.search(this.state.value).then((data) => {
+				this.setState({
+					items: [...data]
 				})
+			})
 		}
 	}
 
@@ -32,7 +51,7 @@ class Search extends Component {
 	}
 
 	render() {
-
+		console.log(this.state.items)
 		document.body.classList.add('overflow-hidden')
 
 		const match = new RegExp(escapeRegExp(this.state.value), 'i')
@@ -56,6 +75,7 @@ class Search extends Component {
 
 						<Filter onUpdateQuery={this.updateAdvancedQuery} />
 
+
 						<div className="mr-search-results">
 							<ul>
 								{
@@ -63,18 +83,26 @@ class Search extends Component {
 										<li key={i.id}>
 											<div
 												className="mr-search-results__image"
-												style={{ backgroundImage: `url(${i.imageLinks ? i.imageLinks.smallThumbnail : '#!'})` }}>
+												style={{ backgroundImage: `url(${i.imageLinks ? i.imageLinks.smallThumbnail : '#!'})` }}
+											>
 											</div>
 											<div className="mr-search-results__text">
+												{
+													<select defaultValue={i.shelf} onChange={event => this.props.onChangeBookShelf(event.target.value, i)}>
+														<option value="moveto" disabled>Move to...</option>
+														<option value="wantToRead">Want to Read</option>
+														<option value="read">Read</option>
+														<option value="currentlyReading">Currently Reading</option>
+														<option value="none">None</option>
+													</select>
+												}
 												<div className="text-col text-col-title">
 													<h2>{i.title}</h2>
 												</div>
 												<div className="text-col text-col-authors">
-													<strong>Authors</strong>
-													<p>{i.author}</p>
+													<p>{i.authors ? i.authors.map((author) => author + ' ') : 'No author available'}</p>
 												</div>
 												<div className="text-col text-col-category">
-													<strong>Categories</strong>
 													<p>{i.categories}</p>
 												</div>
 											</div>
@@ -83,6 +111,7 @@ class Search extends Component {
 								}
 							</ul>
 						</div>
+
 					</div>
 				</div>
 			)
