@@ -6,8 +6,8 @@ import escapeRegExp from 'escape-string-regexp'
 
 class Search extends Component {
 
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.shelfs = [
 			{
 				'id': 'wantToRead',
@@ -46,6 +46,13 @@ class Search extends Component {
 		}
 	}
 
+	onChangeBookShelf = (shelf, book) => {
+		this.setState({
+			book: book.shelf = shelf
+		})
+		BooksAPI.update(book, shelf)
+	}
+
 	removeClass = () => {
 		document.body.classList.remove('overflow-hidden')
 	}
@@ -75,7 +82,6 @@ class Search extends Component {
 
 						<Filter onUpdateQuery={this.updateAdvancedQuery} />
 
-
 						<div className="mr-search-results">
 							<ul>
 								{
@@ -88,7 +94,7 @@ class Search extends Component {
 											</div>
 											<div className="mr-search-results__text">
 												{
-													<select defaultValue={i.shelf} onChange={event => this.props.onChangeBookShelf(event.target.value, i)}>
+													<select defaultValue={i.shelf} onChange={event => this.onChangeBookShelf(event.target.value, i)}>
 														<option value="moveto" disabled>Move to...</option>
 														<option value="wantToRead">Want to Read</option>
 														<option value="read">Read</option>
@@ -111,7 +117,6 @@ class Search extends Component {
 								}
 							</ul>
 						</div>
-
 					</div>
 				</div>
 			)
