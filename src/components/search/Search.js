@@ -61,8 +61,9 @@ class Search extends Component {
 								{
 									this.state.items.map((i) => (
 										<li key={i.id}>
-											<div className="mr-search-results__image">
-												<img src={i.imageLinks ? i.imageLinks.smallThumbnail : '#!'} alt={i.title} />
+											<div
+												className="mr-search-results__image"
+												style={{ backgroundImage: `url(${i.imageLinks ? i.imageLinks.smallThumbnail : '#!'})` }}>
 											</div>
 											<div className="mr-search-results__text">
 												<div className="text-col text-col-title">
