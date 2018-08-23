@@ -10,31 +10,19 @@ class Shelfs extends Component {
 	constructor() {
 		super()
 		this.shelfs = [
-			{
-				'id': 'wantToRead',
-				'name': 'Want to Read'
-			},
-			{
-				'id': 'currentlyReading',
-				'name': 'Currently Reading'
-			},
-			{
-				'id': 'read',
-				'name': 'Read'
-			},
-			{
-				'id': 'none',
-				'name': 'None'
-			}
+			{ 'id': 'wantToRead', 'name': 'Want to Read' },
+			{ 'id': 'currentlyReading', 'name': 'Currently Reading' },
+			{ 'id': 'read', 'name': 'Read' },
+			{ 'id': 'none', 'name': 'None' }
 		]
-	}
 
-	state = {
-		books: [],
-		query: '',
-		loading: true
+		this.state = {
+			books: [],
+			query: '',
+			loading: true
+		}
 	}
-
+  
 	componentDidMount = () => {
 		BooksAPI.getAll().then((books) => {
 			setTimeout(() => this.setState({
@@ -59,7 +47,6 @@ class Shelfs extends Component {
 
 	render() {
 		const { loading } = this.state;
-		console.log(this.state.books)
 
 		let showingBooks, getTitle
 		const match = new RegExp(escapeRegExp(this.state.query), 'i')
@@ -76,6 +63,8 @@ class Shelfs extends Component {
 			return (
 				<main className="mr-main">
 					<div className="container">
+						
+						{/* Value in OtherChild Props: {this.props.passedVal} */}
 
 						<Filter onUpdateQuery={this.updateQuery} />
 
