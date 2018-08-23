@@ -21,11 +21,13 @@ class Search extends Component {
 		items: []
 	}
 
-	update = (e) => {
-		console.log(e.target.value)
-		this.props.onUpdate(e.target.value)
-		this.setState({fieldVal: e.target.value})
+	update = (book, shelf) => {
+		console.log(shelf)
+		this.props.onUpdate(book, shelf)
+		// this.setState({fieldVal: e.target.value})
 	}
+
+	
 
 	updateAdvancedQuery = (value) => {
 		this.setState({
@@ -68,9 +70,8 @@ class Search extends Component {
 						</h2>
 
 						<Filter onUpdateQuery={this.updateAdvancedQuery} />
-						{
-							this.shelfs.map((index) => 
-								<div className="mr-search-results" key={index.id}>
+						
+								<div className="mr-search-results">
 									<ul>
 										{
 											this.state.items.map((i) => (
@@ -82,7 +83,7 @@ class Search extends Component {
 													</div>
 													<div className="mr-search-results__text">
 														{
-															<select defaultValue={i.shelf} onChange={this.update}>
+															<select defaultValue={i.shelf} onChange={event => this.update(event.target.value, i)}>
 																<option value="moveto" disabled>Move to...</option>
 																<option value="wantToRead">Want to Read</option>
 																<option value="read">Read</option>
@@ -105,7 +106,7 @@ class Search extends Component {
 										}
 									</ul>
 								</div>
-							)}
+							
 					</div>
 				</div>
 			)

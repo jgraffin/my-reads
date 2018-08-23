@@ -12,14 +12,15 @@ class App extends Component {
     super(props);
 
     this.state = {
-      fieldVal: ""
+      book: []
     }
   }
 
-  onUpdate = (val) => {
+  onUpdate = (book, shelf) => {
     this.setState({
-      fieldVal: val
+      book: book.shelf = shelf
     })
+    BooksAPI.update(book, shelf)
   };
 
   render() {
@@ -30,7 +31,7 @@ class App extends Component {
         <Route
           path="/"
           render={() => (
-            <Shelfs  passedVal={this.state.fieldVal}/>
+            <Shelfs  passedVal={this.state.book}/>
           )}
         />
 
