@@ -120,3 +120,78 @@
 		}
 	}
 }
+
+$peter-river:#1abc9c;
+$clouds:#1abc9c;
+
+
+.book{
+  background: rgba(#1abc9c, 0.3);
+  border: 5px solid $clouds;
+  height: 60px;
+  margin: 30px auto;
+  position: relative;
+  width: 100px;
+  display: block;
+}
+.book__page{
+  animation-fill-mode: forwards;
+  animation: flip 1.2s infinite linear;
+  background: $peter-river;
+  border-bottom: 5px solid $clouds;
+  border-right: 5px solid $clouds;
+  border-top: 5px solid $clouds;
+  height: 60px;
+  left: 50%;
+  margin: 0 auto;
+  position: absolute;
+  top: -5px;
+  transform-origin: 0% 50%;
+  width: 50px;
+  
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) { 
+      z-index:-$i;
+      animation-delay:1.4s*$i;
+    }
+  }
+}
+
+@keyframes flip {
+  0%{
+      transform: perspective( 600px )
+      rotateY( -0deg );
+  }
+  
+  20%{
+    background:darken($peter-river,10%);
+  }
+  
+  29.9%{
+      background:darken($peter-river,10%);
+  }
+  30%{
+      transform: perspective( 200px )
+      rotateY( -90deg );
+      background:$peter-river;
+  }
+  
+  54.999%{
+    opacity:1;
+  }
+  55%{
+    opacity:0;
+  }
+  
+  60%{
+    transform: perspective( 200px )
+    rotateY( -180deg );
+    background:$peter-river;
+  }
+  
+  100%{
+    transform: perspective( 200px )
+    rotateY( -180deg );
+    background:$peter-river;
+  }
+}

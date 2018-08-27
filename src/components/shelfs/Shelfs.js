@@ -4,7 +4,6 @@ import Filter from '../filter/Filter'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
 import Loader from '../loader/Loader';
-import { Route } from 'react-router-dom'
 
 class Shelfs extends Component {
 
@@ -86,15 +85,4 @@ class Shelfs extends Component {
 }
 
 export default Shelfs
-
-const Book = ({ book }) => {
-	return  (
-		<main className="mr-main">
-		  <div className="container">
-				{book.title}
-				{console.log('dsadad')}
-		  </div>
-		</main>
-	 )
-}
 
