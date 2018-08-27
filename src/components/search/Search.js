@@ -7,16 +7,6 @@ import escapeRegExp from 'escape-string-regexp'
 
 class Search extends Component {
 
-	constructor(props) {
-		super(props)
-		this.shelfs = [
-			{ 'id': 'wantToRead', 'name': 'Want to Read' },
-			{ 'id': 'currentlyReading', 'name': 'Currently Reading' },
-			{ 'id': 'read', 'name': 'Read' },
-			{ 'id': 'none', 'name': 'None' }
-		]
-	}
-
 	state = {
 		value: '',
 		items: []
@@ -31,18 +21,15 @@ class Search extends Component {
 			value: value.trim()
 		})
 		if (value) {
-			console.log('há carácter')
 			if (this.state.value) {
 				BooksAPI.search(this.state.value)
-				.then((data) => {
-					this.setState({
-						items: [...data]
+					.then((data) => {
+						this.setState({
+							items: [...data]
+						})
 					})
-				})
 			}
 		} else {
-			console.log('NÃO há carácter')
-			console.log(value.length)
 			this.setState({
 				items: []
 			})
@@ -54,7 +41,7 @@ class Search extends Component {
 	}
 
 	render() {
-		
+
 		document.body.classList.add('overflow-hidden')
 
 		let showingBooks, getTitle
@@ -81,16 +68,10 @@ class Search extends Component {
 					<Filter onUpdateQuery={this.updateAdvancedQuery} />
 
 					<div className="mr-search-results">
-						{
-							this.shelfs.map((s) => (
-								<div key={s.id}>
-									<MyBooks
-										onChangeBookShelf={this.changeStatus}
-										books={showingBooks.filter((b) => b.id !== s.id)}
-									/>
-								</div>
-							))
-						}
+						<MyBooks
+							onChangeBookShelf={this.changeStatus}
+							books={showingBooks.filter((b) => b.id)}
+						/>
 					</div>
 				</div>
 			</div>
