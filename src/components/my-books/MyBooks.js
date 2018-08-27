@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import LazyLoad from 'react-lazyload'
 
 const MyBooks = (props) => {
 
@@ -17,17 +18,22 @@ const MyBooks = (props) => {
 						<li key={b.id}>
 							<a href="#!" className="mr-search-results__image">
 								<div className="item-book--selection">
-								{
-									<select defaultValue={b.shelf ? b.shelf = b.shelf : b.shelf = 'none'} onChange={event => props.onChangeBookShelf(event.target.value, b)}>
-										<option value="moveto" disabled>Move to...</option>
-										<option value="wantToRead">Want to Read</option>
-										<option value="read">Read</option>
-										<option value="currentlyReading">Currently Reading</option>
-										<option value="none">None</option>
-									</select>
-								}
-							</div>
-								<img src={b.imageLinks ? b.imageLinks.smallThumbnail : '#!'} alt={b.title} />
+									{
+										<select defaultValue={b.shelf ? b.shelf = b.shelf : b.shelf = 'none'} onChange={event => props.onChangeBookShelf(event.target.value, b)}>
+											<option value="moveto" disabled>Move to...</option>
+											<option value="wantToRead">Want to Read</option>
+											<option value="read">Read</option>
+											<option value="currentlyReading">Currently Reading</option>
+											<option value="none">None</option>
+										</select>
+									}
+								</div>
+								<LazyLoad height={200}>
+									<img
+										src={b.imageLinks ? b.imageLinks.smallThumbnail : '#!'}
+										alt={b.title}
+									/>
+								</LazyLoad>
 							</a>
 							<div className="mr-search-results__text">
 								<div className="text-col text-col-title">
@@ -41,7 +47,7 @@ const MyBooks = (props) => {
 					))
 				}
 			</ul>
-			
+
 		</div>
 	)
 }
@@ -49,4 +55,3 @@ const MyBooks = (props) => {
 export default MyBooks
 
 
- 

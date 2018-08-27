@@ -36,6 +36,10 @@
 	padding: 0;
 }
 
+body {
+	background: #ecf0f1;
+}
+
 .container {
 	display: block;
 	margin: 0 auto;
@@ -93,6 +97,7 @@
 .mr-shelf {
 	animation: Fade ease-in-out 0.5s forwards;
 }
+
 
 @import './components/my-books/my-books.css';
 @import './components/filter/input-filter.css';

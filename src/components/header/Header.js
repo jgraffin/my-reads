@@ -2,9 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import BgHeader from '../../imgs/bg-header.jpg'
 
-
 const Header = () => (
-	<header className="mr-header" style={{ backgroundImage: `url(${ BgHeader })` }}>
+	<header className="mr-header" style={{ backgroundImage: `url(${BgHeader})` }}>
 		<div className="container">
 			<div className="mr-header__title">
 				<Link to="/">

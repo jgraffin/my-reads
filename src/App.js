@@ -9,17 +9,17 @@ import './index.css'
 class App extends Component {
 
   changeStatus = (shelf, book) => {
-		this.setState({
-			book: book.shelf = shelf
-		})
-		BooksAPI.update(book, shelf)
+    this.setState({
+      book: book.shelf = shelf
+    })
+    BooksAPI.update(book, shelf)
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        
+
         <Route
           exact path="/"
           render={() => (
@@ -29,13 +29,13 @@ class App extends Component {
 
         <Route
           path="/search"
-          render={() =>(
-            <Search  onChangeBookSearch={this.changeStatus} />
+          render={() => (
+            <Search onChangeBookSearch={this.changeStatus} />
           )}
         />
 
       </div>
-    );
+    )
   }
 }
 

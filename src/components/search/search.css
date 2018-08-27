@@ -110,7 +110,7 @@
     flex-wrap: wrap;
     width: 100%; }
     .mr-search-results ul li {
-      animation: slideIn ease-in-out 0.3s forwards;
+      animation: Fade ease-in-out 0.3s forwards;
       box-shadow: 0 1px 2px rgba(25, 25, 25, 0.2);
       background: #fff;
       display: flex;

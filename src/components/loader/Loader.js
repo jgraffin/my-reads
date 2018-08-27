@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Loaders } from 'loaders.css'
 
 const Loader = (props) => {
 	return (
@@ -11,7 +10,7 @@ const Loader = (props) => {
 			</div>
 			<div className="loading__text">
 				<strong>{props.loadText}</strong>
-			</div>	
+			</div>
 		</div>
 	)
 }

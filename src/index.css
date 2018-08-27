@@ -12,6 +12,9 @@
   margin: 0;
   padding: 0; }
 
+body {
+  background: #ecf0f1; }
+
 .container {
   display: block;
   margin: 0 auto;
