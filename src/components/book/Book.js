@@ -64,18 +64,13 @@ class Shelfs extends Component {
 						<Filter onUpdateQuery={this.updateQuery} />
 
 						{
-							this.shelfs.map((s) =>
-								<div className="mr-shelf" key={s.id}>
-									<div className="mr-shelf__title">
-										<h2>{s.name}</h2>
-									</div>
-									<div className="mr-shelf__list">
-										<MyBooks
-											onChangeBookShelf={this.changeStatus}
-											books={showingBooks.filter((b) => b.shelf === s.id)}
-										/>
-									</div>
-								</div>
+							this.props.books && (
+								<Route
+									path="/book/:id"
+									render={({ match }) => (
+										<Book book={this.props.books.find(b  => b.id === match.params.id )}/>      
+									)}
+								/>
 							)
 						}
 					</div>
@@ -85,7 +80,7 @@ class Shelfs extends Component {
 	}
 }
 
-export default Shelfs
+export default Book
 
 const Book = ({ book }) => {
 	return  (

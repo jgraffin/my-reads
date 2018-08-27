@@ -30,61 +30,65 @@
       width: 120px; }
       .mr-shelf__list li:last-of-type {
         margin-right: 0; }
-      .mr-shelf__list li .item-book--img {
-        box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-        cursor: pointer;
-        display: block;
-        height: 130px;
-        margin-bottom: 20px;
-        overflow: hidden;
-        transition: ease-in-out 0.3s;
-        width: 100%; }
-        .mr-shelf__list li .item-book--img img {
-          display: block;
-          filter: grayscale(1);
-          width: 100%; }
-          .mr-shelf__list li .item-book--img img:hover {
-            filter: grayscale(0); }
-      .mr-shelf__list li .item-book--title, .mr-shelf__list li .item-book--description {
-        display: block;
-        margin-bottom: 6px; }
-        .mr-shelf__list li .item-book--title h2, .mr-shelf__list li .item-book--title p, .mr-shelf__list li .item-book--description h2, .mr-shelf__list li .item-book--description p {
-          color: black;
-          font-family: 'Montserrat';
-          font-weight: 600;
-          font-size: 14px; }
-      .mr-shelf__list li .item-book--description p {
-        color: #999;
-        font-size: 14px; }
-      .mr-shelf__list li .item-book--selection {
-        background: #1abc9c url("../../imgs/icons/chevron-down.svg") no-repeat center center;
-        border-radius: 50%;
-        display: block;
-        height: 40px;
-        overflow: hidden;
-        position: absolute;
-        right: 12px;
-        top: 80px;
-        transition: ease-in-out 0.1s;
-        width: 40px;
-        z-index: 2; }
-        .mr-shelf__list li .item-book--selection:hover {
-          background-position: center 12px; }
-        .mr-shelf__list li .item-book--selection select {
-          appearance: none;
-          background: transparent;
-          border-radius: 90px;
-          cursor: pointer;
-          display: block;
-          font-family: 'Montserrat';
-          font-size: 9px;
-          font-weight: 600;
-          height: 40px;
-          margin-left: -116px;
-          padding: 0 5px;
-          text-transform: uppercase;
-          width: 160px; }
-          .mr-shelf__list li .item-book--selection select:focus {
-            box-shadow: none;
-            outline: none; }
+
+.item-book--img {
+  box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  height: 130px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: ease-in-out 0.3s;
+  width: 100%; }
+  .item-book--img img {
+    display: block;
+    filter: grayscale(1);
+    width: 100%; }
+    .item-book--img img:hover {
+      filter: grayscale(0); }
+
+.item-book--title, .item-book--description {
+  display: block;
+  margin-bottom: 6px; }
+  .item-book--title h2, .item-book--title p, .item-book--description h2, .item-book--description p {
+    color: black;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 14px; }
+
+.item-book--description p {
+  color: #999;
+  font-size: 14px; }
+
+.item-book--selection {
+  background: #1abc9c url("../../imgs/icons/chevron-down.svg") no-repeat center center;
+  border-radius: 50%;
+  display: block;
+  height: 40px;
+  overflow: hidden;
+  position: absolute;
+  right: 12px;
+  top: 80px;
+  transition: ease-in-out 0.1s;
+  width: 40px;
+  z-index: 2; }
+  .item-book--selection:hover {
+    background-position: center 12px; }
+  .item-book--selection select {
+    appearance: none;
+    background: transparent;
+    border-radius: 90px;
+    cursor: pointer;
+    display: block;
+    font-family: 'Montserrat';
+    font-size: 9px;
+    font-weight: 600;
+    height: 40px;
+    margin-left: -116px;
+    padding: 0 5px;
+    text-transform: uppercase;
+    width: 160px; }
+    .item-book--selection select:focus {
+      box-shadow: none;
+      outline: none; }

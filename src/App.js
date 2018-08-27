@@ -8,20 +8,12 @@ import './index.css'
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      book: []
-    }
+  changeStatus = (shelf, book) => {
+		this.setState({
+			book: book.shelf = shelf
+		})
+		BooksAPI.update(book, shelf)
   }
-
-  onUpdate = (book, shelf) => {
-    this.setState({
-      book: book.shelf = shelf
-    })
-    BooksAPI.update(book, shelf)
-  };
 
   render() {
     return (
@@ -29,18 +21,19 @@ class App extends Component {
         <Header />
         
         <Route
-          path="/"
+          exact path="/"
           render={() => (
-            <Shelfs  passedVal={this.state.book}/>
+            <Shelfs onChangeBooks={this.changeStatus} />
           )}
         />
 
         <Route
           path="/search"
           render={() =>(
-            <Search onUpdate={this.onUpdate} />
+            <Search  onChangeBookSearch={this.changeStatus} />
           )}
         />
+
       </div>
     );
   }
