@@ -153,7 +153,8 @@
     .mr-search-results__text .text-col a, .mr-search-results__text .text-col p {
       font-family: 'Montserrat';
       font-weight: 600;
-      font-size: 12px; }
+      font-size: 12px;
+      text-transform: capitalize; }
     .mr-search-results__text .text-col a {
       color: #222;
       display: block;

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import LazyLoad from 'react-lazyload'
+import NoImage from '../../imgs/no-image.png'
 
 const MyBooks = (props) => {
 
@@ -30,7 +31,7 @@ const MyBooks = (props) => {
 								</div>
 								<LazyLoad height={200}>
 									<img
-										src={b.imageLinks ? b.imageLinks.smallThumbnail : '#!'}
+										src={b.imageLinks ? b.imageLinks.smallThumbnail : NoImage}
 										alt={b.title}
 									/>
 								</LazyLoad>

@@ -3,7 +3,7 @@ import MyBooks from '../my-books/MyBooks'
 import Filter from '../filter/Filter'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
-import Loader from '../loader/Loader';
+import Loader from '../loader/Loader'
 
 class Shelfs extends Component {
 
@@ -21,13 +21,17 @@ class Shelfs extends Component {
 			loading: true
 		}
 	}
-  
+
 	componentDidMount = () => {
 		BooksAPI.getAll().then((books) => {
-			setTimeout(() => this.setState({
-				books,
-				loading: false
-			}), 500);
+			if (books) {
+				setTimeout(() => this.setState({
+					books,
+					loading: false
+				}), 500)
+			} else {
+				console.log('error')
+			}
 		})
 	}
 
@@ -41,7 +45,7 @@ class Shelfs extends Component {
 		})
 	}
 
-	render() {
+	render = () => {
 		const { loading } = this.state;
 
 		let showingBooks, getTitle
@@ -55,32 +59,31 @@ class Shelfs extends Component {
 				<Loader loadText="Loading Shelfs ..." />
 			)
 		}
-		else {
-			return (
-				<main className="mr-main">
-					<div className="container">
 
-						<Filter onUpdateQuery={this.updateQuery} />
+		return (
+			<main className="mr-main">
+				<div className="container">
 
-						{
-							this.shelfs.map((s) =>
-								<div className="mr-shelf" key={s.id}>
-									<div className="mr-shelf__title">
-										<h2>{s.name}</h2>
-									</div>
-									<div className="mr-shelf__list">
-										<MyBooks
-											onChangeBookShelf={this.changeStatus}
-											books={showingBooks.filter((b) => b.shelf === s.id)}
-										/>
-									</div>
+					<Filter onUpdateQuery={this.updateQuery} />
+
+					{
+						this.shelfs.map((s) =>
+							<div className="mr-shelf" key={s.id}>
+								<div className="mr-shelf__title">
+									<h2>{s.name}</h2>
 								</div>
-							)
-						}
-					</div>
-				</main>
-			)
-		}
+								<div className="mr-shelf__list">
+									<MyBooks
+										onChangeBookShelf={this.changeStatus}
+										books={showingBooks.filter((b) => b.shelf === s.id)}
+									/>
+								</div>
+							</div>
+						)
+					}
+				</div>
+			</main>
+		)
 	}
 }
 
