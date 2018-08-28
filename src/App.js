@@ -8,6 +8,8 @@ import './index.css'
 
 class App extends Component {
 
+  // Recebe valor da Prateleira e do Livro correspondente.
+  // Atualiza o livro na respectiva Prateleira selecionada.
   changeStatus = (shelf, book) => {
     this.setState({
       book: book.shelf = shelf
@@ -18,8 +20,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        
         <Header />
 
+        {/* Recebe o valor da mudança do livro via Props */}
         <Route
           exact path="/"
           render={() => (
@@ -27,6 +31,7 @@ class App extends Component {
           )}
         />
 
+        {/* Recebe o valor da mudança do livro via Props */}
         <Route
           path="/search"
           render={() => (

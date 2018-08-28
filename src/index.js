@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import WebFont from 'webfontloader'
 import './components/header/header.css'
 
+// Instalado web font
 WebFont.load({
 	google: {
 	  families: ['Montserrat:400,600,700,900', 'sans-serif']

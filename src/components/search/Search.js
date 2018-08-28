@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SearchTitle from '../search-title/SearchTitle'
 import Filter from '../filter/Filter'
 import MyBooks from '../my-books/MyBooks'
 import { Link } from 'react-router-dom'
@@ -16,6 +17,9 @@ class Search extends Component {
 		this.props.onChangeBookSearch(shelf, book)
 	}
 
+	// Pega o valor e atualiza o estado.
+	// Com o valor de state, faz uma chamada na api utilizando o método "search", 
+	// retornar todos os items e atualiza o estado de "items".
 	updateAdvancedQuery = (value) => {
 		this.setState({
 			value: value.trim()
@@ -31,12 +35,14 @@ class Search extends Component {
 		}
 	}
 
+	// Remove a classe que foi adicionada ao acessar a página de Search.
 	removeClass = () => {
 		document.body.classList.remove('overflow-hidden')
 	}
 
 	render() {
 
+		// Adiciona a classe no body a fim de simular um modal no container principal.
 		document.body.classList.add('overflow-hidden')
 
 		let showingBooks, getTitle
@@ -45,6 +51,7 @@ class Search extends Component {
 		getTitle = this.state.items.filter((b) => match.test(b.title))
 		this.state.value ? showingBooks = getTitle : showingBooks = this.state.items
 
+		// Verifica se o valor for diferente de vazio, retorna o nó html com os dados.
 		if (this.state.value !== '') {
 			return (
 				<div className="mr-search">
@@ -55,7 +62,7 @@ class Search extends Component {
 							</svg>
 						</Link>
 
-						<Title />
+						<SearchTitle />
 
 						<Filter onUpdateQuery={this.updateAdvancedQuery} />
 
@@ -78,7 +85,7 @@ class Search extends Component {
 							</svg>
 						</Link>
 
-						<Title />
+						<SearchTitle />
 
 						<Filter onUpdateQuery={this.updateAdvancedQuery} />
 
@@ -92,12 +99,4 @@ class Search extends Component {
 
 export default Search
 
-const Title = () => (
-	<h2 className="mr-search-title">
-		<svg className="mr-search-button mr-search-button__icon" viewBox="0 0 24 24">
-			<path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-		</svg>
-		<strong>Advanced Search</strong>
-	</h2>
-)
 

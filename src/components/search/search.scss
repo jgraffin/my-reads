@@ -210,21 +210,18 @@
 				text-transform: uppercase;
 			}
 
-			a, p {
+			h2, p {
 				font-family: 'Montserrat';
 				font-weight: 600;
 				font-size: 12px;
 				text-transform: capitalize;
 			}
 
-			a {
+			h2 {
 				color: #222;
 				display: block;
 				margin: 4px 0;
 				text-decoration: none;
-				&:hover {
-					text-decoration: underline;
-				}
 			}
 
 			p {

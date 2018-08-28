@@ -1,4 +1,4 @@
-/* Mixin helper for media-queries */
+/* Mixin helper para media-queries */
 
 @mixin media($point) {
 	@if $point == xlg {
@@ -24,8 +24,7 @@
 	}
 }
 
-
-/* Reset All Styles */
+/* Reseta estilos */
 
 * {
 	appearance: none;
@@ -39,6 +38,8 @@
 body {
 	background: #ecf0f1;
 }
+
+// Configura as media queries na classe .container
 
 .container {
 	display: block;
@@ -56,9 +57,9 @@ body {
 		max-width: 100%;
 		width: 970px;
 	}
-
 }
 
+// Animações específicas
 
 @keyframes Fade {
 	from {
@@ -98,6 +99,7 @@ body {
 	animation: Fade ease-in-out 0.5s forwards;
 }
 
+// Inserção dos componentes
 
 @import './components/my-books/my-books.css';
 @import './components/filter/input-filter.css';
