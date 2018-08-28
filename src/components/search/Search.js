@@ -8,13 +8,25 @@ import escapeRegExp from 'escape-string-regexp'
 
 class Search extends Component {
 
+	constructor() {
+		super()
+		this.shelfs = [
+			{ 'id': 'wantToRead', 'name': 'Want to Read' },
+			{ 'id': 'currentlyReading', 'name': 'Currently Reading' },
+			{ 'id': 'read', 'name': 'Read' }
+		]
+	}
+
 	state = {
 		value: '',
 		items: []
 	}
 
 	changeStatus = (shelf, book) => {
-		this.props.onChangeBookSearch(shelf, book)
+		this.setState({
+			book: book.shelf = shelf
+		})
+		BooksAPI.update(book, shelf)
 	}
 
 	// Pega o valor e atualiza o estado.
@@ -45,11 +57,11 @@ class Search extends Component {
 		// Adiciona a classe no body a fim de simular um modal no container principal.
 		document.body.classList.add('overflow-hidden')
 
-		let showingBooks, getTitle
+		let showingBooks, listItems
 		const match = new RegExp(escapeRegExp(this.state.value), 'i')
 
-		getTitle = this.state.items.filter((b) => match.test(b.title))
-		this.state.value ? showingBooks = getTitle : showingBooks = this.state.items
+		listItems = this.state.items.filter((b) => match.test(b.title))
+		showingBooks = this.state.query ? listItems : this.state.items
 
 		// Verifica se o valor for diferente de vazio, retorna o nó html com os dados.
 		if (this.state.value !== '') {
@@ -72,6 +84,7 @@ class Search extends Component {
 								books={showingBooks.filter((b) => b.id)}
 							/>
 						</div>
+
 					</div>
 				</div>
 			)

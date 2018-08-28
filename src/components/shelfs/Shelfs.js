@@ -44,7 +44,10 @@ class Shelfs extends Component {
 	// Passsa os valores de "shelf" e "book" via props para ser atualizado no componente pai.
 	// Dessa forma todos os componentes filhos recebem a mesma atualização.
 	changeStatus = (shelf, book) => {
-		this.props.onChangeBooks(shelf, book)
+		this.setState({
+			book: book.shelf = shelf
+		})
+		BooksAPI.update(book, shelf)
 	}
 
 	// Recebe o valor do filtro e atualiza o valor a propriedade query.
@@ -59,13 +62,13 @@ class Shelfs extends Component {
 
 		const { loading } = this.state;
 
-		let showingBooks, getTitle
+		let showingBooks, listBooks
 		const match = new RegExp(escapeRegExp(this.state.query), 'i')
 
 		// Pega o array e faz um filtro, onde o teste é feito no título.
 		// Se o título for igual ao valor que está listado nas prateleiras, o mesmo é retornado.
-		getTitle = this.state.books.filter((b) => match.test(b.title))
-		this.state.query ? showingBooks = getTitle : showingBooks = this.state.books
+		listBooks = this.state.books.filter((b) => match.test(b.title))
+		showingBooks = this.state.query ? listBooks : this.state.books
 
 		if (loading) {
 			return (
