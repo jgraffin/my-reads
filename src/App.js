@@ -5,11 +5,13 @@ import Shelfs from './components/shelfs/Shelfs'
 import Search from './components/search/Search'
 import './index.css'
 import * as BooksAPI from './utils/BooksAPI'
+import Loader from './components/loader/Loader'
 
 class App extends Component {
 
   state = {
-    books: []
+    books: [],
+    loading: true
   }
 
   // Monta o componente com os dados da api.
@@ -19,7 +21,8 @@ class App extends Component {
     BooksAPI.getAll().then((books) => {
       if (books) {
         this.setState({
-          books
+          books: books,
+          loading: false
         })
       }
     })
@@ -27,20 +30,28 @@ class App extends Component {
 
   render() {
 
+    const { loading } = this.state;
+
     return (
 
       <div className="App">
 
         <Header />
 
-        <Route
-          exact path="/"
-          render={() => (
-            <Shelfs
-              books={this.state.books}
+        {
+          loading
+            ?
+            <Loader loadText="Loading Shelfs ..." />
+            :
+            <Route
+              exact path="/"
+              render={() => (
+                <Shelfs
+                  books={this.state.books}
+                />
+              )}
             />
-          )}
-        />
+        }
 
         <Route
           path="/search"

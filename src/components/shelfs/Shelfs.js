@@ -3,7 +3,6 @@ import MyBooks from '../my-books/MyBooks'
 import Filter from '../filter/Filter'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
-import Loader from '../loader/Loader'
 
 class Shelfs extends Component {
 
@@ -22,8 +21,7 @@ class Shelfs extends Component {
 	// query: Vazio por padrão. Mudará somente quando o campo do filtro for preenchido.
 	// loading: Enquanto a api não retornar com os dados, o loader continua visível.
 	state = {
-		query: '',
-		loading: true
+		query: ''
 	}
 
 	// Passsa os valores de "shelf" e "book" via props para ser atualizado no componente pai.
@@ -44,8 +42,7 @@ class Shelfs extends Component {
 	}
 
 	render = () => {
-		console.log(this.props.books)
-		// const { loading } = this.state;
+
 		// console.log(this.state.books)
 
 		let showingBooks, listBooks
@@ -55,12 +52,6 @@ class Shelfs extends Component {
 		// Se o título for igual ao valor que está listado nas prateleiras, o mesmo é retornado.
 		listBooks = this.props.books.filter((b) => match.test(b.title))
 		showingBooks = this.state.query ? listBooks : this.props.books
-
-		// if (loading) {
-		// 	return (
-		// 		<Loader loadText="Loading Shelfs ..." />
-		// 	)
-		// }
 
 		return (
 			<main className="mr-main">

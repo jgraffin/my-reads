@@ -8,15 +8,6 @@ import escapeRegExp from 'escape-string-regexp'
 
 class Search extends Component {
 
-	constructor() {
-		super()
-		this.shelfs = [
-			{ 'id': 'wantToRead', 'name': 'Want to Read' },
-			{ 'id': 'currentlyReading', 'name': 'Currently Reading' },
-			{ 'id': 'read', 'name': 'Read' }
-		]
-	}
-
 	state = {
 		value: '',
 		items: []
@@ -38,7 +29,6 @@ class Search extends Component {
 		})
 		if (value) {
 			if (this.state.value) {
-
 				BooksAPI.search(this.state.value).then((data) => {
 					this.setState({
 						items: this.props.books
@@ -54,6 +44,7 @@ class Search extends Component {
 	// Remove a classe que foi adicionada ao acessar a página de Search.
 	removeClass = () => {
 		document.body.classList.remove('overflow-hidden')
+		this.changeStatus()
 	}
 
 	render() {
