@@ -18,7 +18,10 @@ const MyBooks = (props) => {
 						<Link to="#!" className="mr-search-results__image">
 							<div className="item-book--selection">
 								{
-									<select defaultValue={b.shelf ? b.shelf = b.shelf : b.shelf = 'none'} onChange={event => props.onChangeBookShelf(event.target.value, b)}>
+
+									<select
+										defaultValue={props.bookSearch.filter((book) => book.id === b.id).reduce((prev, book) => book.shelf, 'none')}
+										onChange={event => props.onChangeBookShelf(event.target.value, b)}>
 										<option value="moveto" disabled>Move to...</option>
 										<option value="wantToRead">Want to Read</option>
 										<option value="read">Read</option>

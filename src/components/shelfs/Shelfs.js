@@ -22,23 +22,8 @@ class Shelfs extends Component {
 	// query: Vazio por padrão. Mudará somente quando o campo do filtro for preenchido.
 	// loading: Enquanto a api não retornar com os dados, o loader continua visível.
 	state = {
-		books: [],
 		query: '',
 		loading: true
-	}
-
-	// Monta o componente com os dados da api.
-	// Muda o estado de books, preenchendo-o com os dados da api.
-	// Após 500 microsegundos a lista é mostrada na tela.
-	componentDidMount = () => {
-		BooksAPI.getAll().then((books) => {
-			if (books) {
-				setTimeout(() => this.setState({
-					books,
-					loading: false
-				}), 500)
-			}
-		})
 	}
 
 	// Passsa os valores de "shelf" e "book" via props para ser atualizado no componente pai.
@@ -59,22 +44,23 @@ class Shelfs extends Component {
 	}
 
 	render = () => {
-
-		const { loading } = this.state;
+		console.log(this.props.books)
+		// const { loading } = this.state;
+		// console.log(this.state.books)
 
 		let showingBooks, listBooks
 		const match = new RegExp(escapeRegExp(this.state.query), 'i')
 
 		// Pega o array e faz um filtro, onde o teste é feito no título.
 		// Se o título for igual ao valor que está listado nas prateleiras, o mesmo é retornado.
-		listBooks = this.state.books.filter((b) => match.test(b.title))
-		showingBooks = this.state.query ? listBooks : this.state.books
+		listBooks = this.props.books.filter((b) => match.test(b.title))
+		showingBooks = this.state.query ? listBooks : this.props.books
 
-		if (loading) {
-			return (
-				<Loader loadText="Loading Shelfs ..." />
-			)
-		}
+		// if (loading) {
+		// 	return (
+		// 		<Loader loadText="Loading Shelfs ..." />
+		// 	)
+		// }
 
 		return (
 			<main className="mr-main">
@@ -96,6 +82,7 @@ class Shelfs extends Component {
 									<MyBooks
 										onChangeBookShelf={this.changeStatus}
 										books={showingBooks.filter((b) => b.shelf === s.id)}
+										bookSearch={this.props.books}
 									/>
 								</div>
 							</div>

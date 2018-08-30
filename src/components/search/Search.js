@@ -38,7 +38,11 @@ class Search extends Component {
 		})
 		if (value) {
 			if (this.state.value) {
+
 				BooksAPI.search(this.state.value).then((data) => {
+					this.setState({
+						items: this.props.books
+					})
 					this.setState({
 						items: [...data]
 					})
@@ -82,9 +86,9 @@ class Search extends Component {
 							<MyBooks
 								onChangeBookShelf={this.changeStatus}
 								books={showingBooks.filter((b) => b.id)}
+								bookSearch={this.props.books}
 							/>
 						</div>
-
 					</div>
 				</div>
 			)
