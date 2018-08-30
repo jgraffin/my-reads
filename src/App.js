@@ -39,16 +39,13 @@ class App extends Component {
         <Header />
 
         {
-          loading
-            ?
+          loading ?
             <Loader loadText="Loading Shelfs ..." />
             :
             <Route
               exact path="/"
               render={() => (
-                <Shelfs
-                  books={this.state.books}
-                />
+                <Shelfs books={this.state.books} />
               )}
             />
         }
