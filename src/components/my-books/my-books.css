@@ -106,3 +106,18 @@
 .container--shelf .read h2 {
   color: #1abc9c;
   border-bottom: 1px solid #1abc9c; }
+
+.text-col {
+  display: block;
+  position: relative; }
+  .text-col-author {
+    margin-bottom: 15px; }
+    .text-col-author:after {
+      background: #7f8c8d;
+      content: '';
+      width: 20px;
+      height: 1px;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -10px; }

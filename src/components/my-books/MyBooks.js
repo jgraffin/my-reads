@@ -40,17 +40,19 @@ const MyBooks = (props) => {
 							<div className="text-col text-col-title">
 								<h3>{b.title}</h3>
 							</div>
-							<div className="text-col text-col-category">
-								<p>{b.categories}</p>
-							</div>
 							<div className="text-col text-col-author">
 								<p>{b.authors || 'Author Unavailable'}</p>
 							</div>
-							<div className="text-col mr-current-shelf">
-								<div className={props.bookSearch.filter((book) => book.id === b.id).reduce((prev, book) => book.shelf, 'none')}>
-									{props.bookSearch.filter((book) => book.id === b.id).reduce((prev, book) => book.shelf, 'none')}
-								</div>
+							<div className="text-col text-col-category">
+								<p>{b.categories}</p>
 							</div>
+							{
+								props.view === 'search' ?
+									<div className="text-col mr-current-shelf">
+										{props.bookSearch.filter((book) => book.id === b.id).reduce((prev, book) => book.shelf, 'none')}
+									</div>
+									: ''
+							}
 						</div>
 					</li>
 				))

@@ -10,7 +10,8 @@ class Search extends Component {
 
 	state = {
 		value: '',
-		items: []
+		items: [],
+		getView: 'search'
 	}
 
 	changeStatus = (shelf, book) => {
@@ -78,6 +79,7 @@ class Search extends Component {
 								onChangeBookShelf={this.changeStatus}
 								books={showingBooks.filter((b) => b.id)}
 								bookSearch={this.props.books}
+								view={this.state.getView}
 							/>
 						</div>
 					</div>
@@ -97,7 +99,9 @@ class Search extends Component {
 
 						<Filter onUpdateQuery={this.updateAdvancedQuery} />
 
-						<div className="mr-search-results"></div>
+						<div className="mr-search-results">
+							<p>You must type some <strong>Book</strong> or <strong>Author</strong></p>
+						</div>
 					</div>
 				</div>
 			)

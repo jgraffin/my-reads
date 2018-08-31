@@ -21,7 +21,8 @@ class Shelfs extends Component {
 	// query: Vazio por padrão. Mudará somente quando o campo do filtro for preenchido.
 	// loading: Enquanto a api não retornar com os dados, o loader continua visível.
 	state = {
-		query: ''
+		query: '',
+		getView: 'shelf'
 	}
 
 	// Passsa os valores de "shelf" e "book" via props para ser atualizado no componente pai.
@@ -74,6 +75,7 @@ class Shelfs extends Component {
 										onChangeBookShelf={this.changeStatus}
 										books={showingBooks.filter((b) => b.shelf === s.id)}
 										bookSearch={this.props.books}
+										view={this.state.getView}
 									/>
 								</div>
 							</div>

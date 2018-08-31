@@ -144,3 +144,20 @@
 	}
 }
 
+.text-col {
+	display: block;
+	position: relative;
+	&-author {
+		margin-bottom: 15px;
+		&:after {
+			background: #7f8c8d;
+			content: '';
+			width: 20px;
+			height: 1px;
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: -10px;
+		}
+	}
+}

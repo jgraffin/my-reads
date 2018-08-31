@@ -105,6 +105,13 @@
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%; }
+  .mr-search-results p {
+    color: #95a5a6;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 300; }
+    .mr-search-results p strong {
+      font-weight: 600; }
   .mr-search-results ul {
     display: flex;
     flex-wrap: wrap;
@@ -131,7 +138,7 @@
     font-weight: 600;
     background: #7f8c8d;
     color: #fff;
-    margin-top: auto; }
+    margin: 10px 0; }
   .mr-search-results__image {
     border-radius: 3px 3px 0 0;
     display: block;
