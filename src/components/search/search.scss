@@ -41,7 +41,7 @@
 
 			.mr-search-button__icon-close {
 				path {
-					fill: #1abc9c;
+					fill: #7f8c8d;
 				}
 			}
 
@@ -67,7 +67,7 @@
 				transform: scale(1.2);
 				.mr-search-button__icon {
 					path {
-						fill: #1abc9c;
+						fill: #7f8c8d;
 					}
 				}
 			}
@@ -92,7 +92,7 @@
 	}
 
 	&-title{ 
-		color: #1abc9c;
+		color: #7f8c8d;
 		font-family: 'Montserrat';
 		font-weight: 400;
 		.mr-search-button__icon {
@@ -103,7 +103,7 @@
 			transform: translateY(-2px);
 			width: 35px;
 			path {
-				fill: #1abc9c;
+				fill: #7f8c8d;
 			}
 		}
 	}
@@ -165,6 +165,21 @@
 		}
 	}
 
+	.mr-current-shelf {
+		display: inline-block;
+		padding: 4px 6px;
+		display: inline-block;
+		border-radius: 3px;
+		padding: 2px 4px;
+		font-size: 11px;
+		text-transform: uppercase;
+		font-family: 'Montserrat';
+		font-weight: 600;
+		background: #7f8c8d;
+		color: #fff;
+		margin-top: auto;
+	}
+
 	&__image {
 		border-radius: 3px 3px 0 0;
 		display: block;
@@ -175,6 +190,7 @@
 
 		img {
 			display: block;
+			transition: ease-in-out 0.3s;
 			width: 100%;
 		}
 
@@ -193,6 +209,7 @@
 			&::before {
 				background: rgba(0,0,0,0.5);
 			}	
+			
 		}
 	}
 
@@ -210,14 +227,14 @@
 				text-transform: uppercase;
 			}
 
-			h2, p {
+			h3, p {
 				font-family: 'Montserrat';
 				font-weight: 600;
 				font-size: 12px;
 				text-transform: capitalize;
 			}
 
-			h2 {
+			h3 {
 				color: #222;
 				display: block;
 				margin: 4px 0;

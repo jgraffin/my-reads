@@ -2,18 +2,17 @@
 	display: block;
 	width: 100%;
 	&__title {
-		border-bottom: 1px solid #dadada;
 		display: block;
-		padding: 30px 0 10px 0;
 		width: 100%;
 		h2 {
-			color: #1abc9c;
-			display: inline-block;
+			display: block;
 			font-family: 'Montserrat';
 			font-weight: 800;
 			font-size: 16px;
 			letter-spacing: 1px;
 			text-transform: uppercase;
+			padding: 30px 0 10px 0;
+			width: 96.5%;
 		}
 	}
 	&__list {
@@ -56,12 +55,7 @@
 
 		img {
 			display: block;
-			filter: grayscale(1);
 			width: 100%;
-
-			&:hover {
-				filter: grayscale(0);
-			}
 		}
 	}
 
@@ -85,7 +79,7 @@
 	}
 
 	&--selection {
-		background: #1abc9c url('../../imgs/icons/chevron-down.svg') no-repeat center center;
+		background: #fff url('../../imgs/icons/dots-vertical.svg') no-repeat center center;
 		border-radius: 50%;
 		display: block;
 		height: 40px;
@@ -93,13 +87,8 @@
 		position: absolute;
 		right: 12px;
 		top: 80px;
-		transition: ease-in-out 0.1s;
 		width: 40px;
 		z-index: 2;
-
-		&:hover {
-			background-position: center 12px;
-		}
 
 		select {
 			appearance: none;
@@ -128,4 +117,30 @@
 	.item-book--selection {
 		top: 50px;
 	}
+	li {
+			
+		width: 165px;
+	}
 }
+
+.container--shelf {
+	.wantToRead {
+		h2 {
+			color: #e74c3c;
+			border-bottom: 1px solid #e74c3c;
+		}
+	}
+	.currentlyReading {
+		h2 {
+			color: #f1c40f;
+			border-bottom: 1px solid #f1c40f;
+		}
+	}
+	.read {
+		h2 {
+			color: #1abc9c;
+			border-bottom: 1px solid #1abc9c;
+		}
+	}
+}
+

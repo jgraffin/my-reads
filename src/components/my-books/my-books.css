@@ -2,18 +2,17 @@
   display: block;
   width: 100%; }
   .mr-shelf__title {
-    border-bottom: 1px solid #dadada;
     display: block;
-    padding: 30px 0 10px 0;
     width: 100%; }
     .mr-shelf__title h2 {
-      color: #1abc9c;
-      display: inline-block;
+      display: block;
       font-family: 'Montserrat';
       font-weight: 800;
       font-size: 16px;
       letter-spacing: 1px;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      padding: 30px 0 10px 0;
+      width: 96.5%; }
   .mr-shelf__list {
     display: block;
     width: 100%; }
@@ -46,10 +45,7 @@
   width: 100%; }
   .item-book--img img {
     display: block;
-    filter: grayscale(1);
     width: 100%; }
-    .item-book--img img:hover {
-      filter: grayscale(0); }
 
 .item-book--title, .item-book--description {
   display: block;
@@ -65,7 +61,7 @@
   font-size: 14px; }
 
 .item-book--selection {
-  background: #1abc9c url("../../imgs/icons/chevron-down.svg") no-repeat center center;
+  background: #fff url("../../imgs/icons/dots-vertical.svg") no-repeat center center;
   border-radius: 50%;
   display: block;
   height: 40px;
@@ -73,11 +69,8 @@
   position: absolute;
   right: 12px;
   top: 80px;
-  transition: ease-in-out 0.1s;
   width: 40px;
   z-index: 2; }
-  .item-book--selection:hover {
-    background-position: center 12px; }
   .item-book--selection select {
     appearance: none;
     background: transparent;
@@ -98,3 +91,18 @@
 
 .mr-shelf__list .item-book--selection {
   top: 50px; }
+
+.mr-shelf__list li {
+  width: 165px; }
+
+.container--shelf .wantToRead h2 {
+  color: #e74c3c;
+  border-bottom: 1px solid #e74c3c; }
+
+.container--shelf .currentlyReading h2 {
+  color: #f1c40f;
+  border-bottom: 1px solid #f1c40f; }
+
+.container--shelf .read h2 {
+  color: #1abc9c;
+  border-bottom: 1px solid #1abc9c; }

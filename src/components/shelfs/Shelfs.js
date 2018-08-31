@@ -43,7 +43,7 @@ class Shelfs extends Component {
 
 	render = () => {
 
-		// console.log(this.state.books)
+		console.log(this.props.books)
 
 		let showingBooks, listBooks
 		const match = new RegExp(escapeRegExp(this.state.query), 'i')
@@ -55,7 +55,7 @@ class Shelfs extends Component {
 
 		return (
 			<main className="mr-main">
-				<div className="container">
+				<div className="container container--shelf">
 
 					<Filter onUpdateQuery={this.updateQuery} />
 
@@ -65,7 +65,7 @@ class Shelfs extends Component {
 						// para o método "this.changeStatus" fazer o tratamento.
 						// books: Distribui corretamente cada livro em sua respectiva prateleira no carregamento da página.
 						this.shelfs.map((s) =>
-							<div className="mr-shelf" key={s.id}>
+							<div className={s.id} key={s.id}>
 								<div className="mr-shelf__title">
 									<h2>{s.name}</h2>
 								</div>
