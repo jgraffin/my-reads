@@ -46,6 +46,9 @@ const MyBooks = (props) => {
 							<div className="text-col text-col-category">
 								<p>{b.categories}</p>
 							</div>
+							<div className="text-col text-col-category">
+								<p>{b.averageRating}</p>
+							</div>
 							{
 								props.view === 'search' ?
 									<div className="text-col mr-current-shelf">
