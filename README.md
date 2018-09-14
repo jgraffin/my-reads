@@ -15,7 +15,7 @@ Caso queira remover o livro da prateleira atual, basta trocar para opção "none
 
 ### Busca
 
-Caso queira consultart um livro que não está na lista de prateleiras, basta clicar no botão de busca, no cabeçalho, para ativar a busca avançada.
+Caso queira consultar um livro que não está na lista de prateleiras, basta clicar no botão de busca, no cabeçalho, para ativar a busca avançada.
 
 Na Busca Avançada existe a possibilidade de mover o livro para qualquer prateleira.
 
