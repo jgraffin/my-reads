@@ -34,6 +34,8 @@
     position: relative;
     width: 85px;
     z-index: 2; }
+    .mr-header__title a {
+      text-decoration: none; }
     .mr-header__title h1 {
       align-items: center;
       color: #fff;
