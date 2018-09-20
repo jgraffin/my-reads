@@ -1,5 +1,13 @@
 Esse é um projeto/estudo de aplicabilidade dos conceitos e React no mundo real.
 
+## Instalando e rodando
+Para instalar e rodar o projeto basta seguir os seguintes passos:
+
+- Fazer o clone do projeto na sua máquina;
+- `npm install` na raiz do projeto;
+- `npm start`, para rodar a build;
+- Enjoy!
+
 ## App My Reads
 
 App que tem a finalidade de atualizar o status de leitura do usuário.
