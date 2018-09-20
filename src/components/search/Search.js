@@ -5,6 +5,7 @@ import MyBooks from '../my-books/MyBooks'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../../utils/BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
+import { debounce } from 'throttle-debounce';
 
 class Search extends Component {
 
@@ -24,23 +25,21 @@ class Search extends Component {
 	// Pega o valor e atualiza o estado.
 	// Com o valor de state, faz uma chamada na api utilizando o método "search", 
 	// retornar todos os items e atualiza o estado de "items".
-	updateAdvancedQuery = (value) => {
+	updateAdvancedQuery = debounce(600, (value) => {
 		this.setState({
 			value: value.trim()
 		})
-		if (value) {
-			if (this.state.value) {
-				BooksAPI.search(this.state.value).then((data) => {
-					this.setState({
-						items: this.props.books
-					})
-					this.setState({
-						items: [...data]
-					})
+		if (value && this.state.value) {
+			BooksAPI.search(this.state.value).then((data) => {
+				this.setState({
+					items: this.props.books
 				})
-			}
+				this.setState({
+					items: [...data]
+				})
+			})
 		}
-	}
+	})
 
 	// Remove a classe que foi adicionada ao acessar a página de Search.
 	removeClass = () => {
